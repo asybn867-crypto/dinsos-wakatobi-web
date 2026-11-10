@@ -43,3 +43,11 @@ const initSidebar=()=>{
  links.forEach(a=>a.addEventListener("click",()=>{links.forEach(x=>x.classList.toggle("is-active",x===a))}));
 };
 document.addEventListener("DOMContentLoaded",initSidebar);
+
+const initPrototypeForms=()=>{
+ const complaint=document.querySelector("#complaint-form"),complaintFeedback=document.querySelector("#complaint-feedback");
+ complaint?.addEventListener("submit",e=>{e.preventDefault();if(!complaint.reportValidity())return;if(complaintFeedback)complaintFeedback.textContent="Data formulir valid, tetapi belum terkirim. Sistem penerimaan pengaduan belum terhubung ke server Dinsos.";});
+ const admin=document.querySelector("#admin-login"),adminFeedback=document.querySelector("#admin-feedback");
+ admin?.addEventListener("submit",e=>{e.preventDefault();if(adminFeedback)adminFeedback.textContent="Login ditolak: autentikasi server belum tersedia. Tidak ada akun atau kata sandi yang diverifikasi.";admin.reset();});
+};
+document.addEventListener("DOMContentLoaded",initPrototypeForms);
