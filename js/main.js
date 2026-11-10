@@ -31,3 +31,15 @@ const initPublicTools=()=>{
  document.addEventListener("keydown",e=>{if(e.key==="/"&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){e.preventDefault();search?.focus()}});
 };
 document.addEventListener("DOMContentLoaded",initPublicTools);
+
+const initSidebar=()=>{
+ const links=[...document.querySelectorAll(".sidebar-nav a")];
+ const sections=links.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+ if(!links.length||!("IntersectionObserver"in window))return;
+ const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(a=>a.classList.toggle("is-active",a.getAttribute("href")==="#"+entry.target.id))}});
+ },{rootMargin:"-22% 0px -65% 0px",threshold:0});
+ sections.forEach(section=>observer.observe(section));
+ links.forEach(a=>a.addEventListener("click",()=>{links.forEach(x=>x.classList.toggle("is-active",x===a))}));
+};
+document.addEventListener("DOMContentLoaded",initSidebar);
