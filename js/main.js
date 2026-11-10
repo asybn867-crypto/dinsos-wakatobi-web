@@ -5,3 +5,29 @@ const initMenu=()=>{const button=document.querySelector(".menu-toggle"),nav=docu
 const ready=()=>{document.body.classList.add("page-ready");document.body.classList.remove("is-loading")};
 window.addEventListener("load",()=>{initMenu();revealElements();const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;setTimeout(ready,reduced?0:650)});
 document.addEventListener("DOMContentLoaded",()=>{const year=document.querySelector("#year");if(year)year.textContent=new Date().getFullYear()});
+const initPublicTools=()=>{
+ const search=document.querySelector("#site-search"),results=document.querySelector("#search-results");
+ if(search&&results){
+  const searchable=[...document.querySelectorAll("main section,main article,main details")].filter(el=>el.id!=="beranda");
+  const close=()=>{results.hidden=true;searchable.forEach(el=>el.classList.remove("search-hit"))};
+  search.addEventListener("input",()=>{
+   const q=search.value.trim().toLocaleLowerCase("id");
+   results.replaceChildren();searchable.forEach(el=>el.classList.remove("search-hit"));
+   if(!q){close();return}
+   const matches=searchable.filter(el=>el.innerText.toLocaleLowerCase("id").includes(q)).slice(0,12);
+   if(!matches.length){results.textContent="Tidak ada hasil yang cocok.";results.hidden=false;return}
+   const heading=make("strong","",matches.length+" hasil ditemukan");results.append(heading);
+   matches.forEach(el=>{const a=make("a","",el.querySelector("h2,h3,summary")?.textContent||el.id||"Informasi");const small=make("small","",el.innerText.trim().replace(/\s+/g," ").slice(0,105));a.href="#"+(el.id||el.closest("section")?.id||"konten");a.append(small);a.addEventListener("click",close);results.append(a)});
+   results.hidden=false;
+  });
+  search.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+  document.addEventListener("click",e=>{if(!results.contains(e.target)&&e.target!==search)close()});
+ }
+ const toggle=document.querySelector(".access-toggle"),panel=document.querySelector("#access-tools");
+ if(toggle&&panel){toggle.addEventListener("click",()=>{const open=toggle.getAttribute("aria-expanded")==="true";toggle.setAttribute("aria-expanded",String(!open));panel.hidden=open})}
+ document.querySelectorAll("[data-font]").forEach(btn=>btn.addEventListener("click",()=>{document.body.classList.remove("font-large","font-small");if(btn.dataset.font==="up")document.body.classList.add("font-large");if(btn.dataset.font==="down")document.body.classList.add("font-small")}));
+ document.querySelector("[data-contrast]")?.addEventListener("click",()=>document.body.classList.toggle("high-contrast"));
+ document.querySelector("[data-reset]")?.addEventListener("click",()=>{document.body.classList.remove("font-large","font-small","high-contrast")});
+ document.addEventListener("keydown",e=>{if(e.key==="/"&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){e.preventDefault();search?.focus()}});
+};
+document.addEventListener("DOMContentLoaded",initPublicTools);
