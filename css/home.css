@@ -183,7 +183,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 .footer-identity .identity-copy strong{color:#fff;font-size:12px}
 .footer-identity .identity-copy small{color:#aebfb4}
 @media(max-width:1050px){
- :root{--page:min(100% - 48px,1280px)}
+ :root{--page:min(calc(100% - 48px),1280px)}
  .header-meta>span{display:none}
  .hero{gap:42px}
  .quick-panel{grid-template-columns:150px minmax(0,1fr);padding-inline:20px}
