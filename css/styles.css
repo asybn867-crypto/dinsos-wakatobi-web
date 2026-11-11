@@ -448,3 +448,11 @@ button,input,select,textarea{font:inherit}
 .news-feature .news-photo img{display:block;object-fit:cover}
 @media(max-width:760px){.news-gallery{grid-template-columns:1fr 1fr;gap:10px}.news-gallery img{height:190px}.news-gallery figcaption{display:block}.news-gallery figcaption span{display:block;margin-top:3px;text-align:left}}
 @media(max-width:520px){.news-gallery{grid-template-columns:1fr;gap:13px;margin-bottom:32px}.news-gallery img{height:220px}}
+
+/* Foto pada kartu berita mengikuti isi artikelnya */
+.news-image-list .news-image-item{grid-template-columns:minmax(180px, .72fr) 1.28fr;align-items:center;gap:24px;padding:22px 4px}
+.news-item-photo{display:block;min-width:0;height:190px;overflow:hidden;background:#e5ebe5}
+.news-item-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.news-item-photo:hover img{transform:scale(1.035)}
+.news-image-item>div{min-width:0}
+@media(max-width:520px){.news-image-list .news-image-item{grid-template-columns:1fr;gap:12px;padding:18px 0}.news-item-photo{height:210px}}
