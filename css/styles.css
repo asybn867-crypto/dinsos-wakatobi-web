@@ -411,3 +411,18 @@ button,input,select,textarea{font:inherit}
  .org-children>.org-node>.org-unit{padding:10px 8px}
  .org-children .org-unit h3{font-size:12px}
 }
+
+/* Bagan organisasi bercabang, maksimal lima kartu sejajar */
+.org-chart{overflow:visible;min-width:0}
+.org-branches{grid-template-columns:repeat(5,minmax(0,1fr));align-items:start;gap:28px 14px}
+.org-node{min-width:0;max-width:100%}
+.org-unit{min-width:0;overflow:hidden;overflow-wrap:anywhere;word-break:normal}
+.org-unit h3{overflow-wrap:anywhere}
+.org-children{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 8px;margin-top:20px;padding:14px 0 0;border-top:1px solid #b8c9bd;border-left:0;position:relative}
+.org-children:before{content:"";position:absolute;left:25%;right:25%;top:0;height:1px;background:#b8c9bd;display:block}
+.org-children>.org-node{min-width:0;position:relative}
+.org-children>.org-node:before{content:"";display:block;position:absolute;left:50%;bottom:100%;height:14px;width:1px;background:#b8c9bd}
+.org-children>.org-node>.org-unit{height:100%}
+@media(max-width:1050px){.org-branches{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 12px}}
+@media(max-width:760px){.org-branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 10px}.org-children{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 6px}}
+@media(max-width:420px){.org-branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 8px}.org-children{grid-template-columns:1fr}.org-children:before{left:50%;right:auto}.org-children>.org-node:before{display:none}}
