@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{--ink:#142c32;--deep:#0d3038;--deep-2:#174750;--sea:#167c78;--sea-light:#dcece7;--coral:#e76d50;--gold:#e8bd72;--paper:#f4f2eb;--white:#fffefa;--line:#d9ded8;--muted:#667771;--display:"Space Grotesk",sans-serif;--body:"Manrope",sans-serif;--mono:"IBM Plex Mono",monospace}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
