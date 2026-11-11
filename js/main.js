@@ -12,15 +12,17 @@ const initPublicStructure=async()=>{
   for(const list of byParent.values())list.sort((a,b)=>(a.sort_order-b.sort_order)||a.name.localeCompare(b.name,"id"));
   const branches=document.createElement("div");branches.className="org-branches";
   const addUnit=(item,parent)=>{
+   const node=document.createElement("div");node.className="org-node";
    const card=document.createElement("article");card.className="org-unit";
    const label=document.createElement("span");label.textContent=item.parent_id?"UNIT":"UNIT KERJA";
    const title=document.createElement("h3");title.textContent=item.name;
    const desc=document.createElement("p");desc.textContent=item.description||"";
    card.append(label,title);if(item.description)card.append(desc);
    if(item.office_holder){const holder=document.createElement("div");holder.className="org-sub";holder.textContent="Penanggung jawab: "+item.office_holder;card.append(holder)}
+   node.append(card);
    const children=byParent.get(item.id)||[];
-   if(children.length){const group=document.createElement("div");group.className="org-children";for(const child of children)addUnit(child,group);card.append(group)}
-   parent.append(card);
+   if(children.length){const group=document.createElement("div");group.className="org-children";for(const child of children)addUnit(child,group);node.append(group)}
+   parent.append(node);
   };
   for(const item of byParent.get("")||[])addUnit(item,branches);
   if(branches.childElementCount)host.append(branches);
