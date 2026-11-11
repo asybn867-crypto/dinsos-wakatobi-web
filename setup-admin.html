@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Setup Admin Pertama | Dinsos Wakatobi</title>
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<div class="demo-notice">AREA INTERNAL · SETUP SATU KALI</div>
+<header class="site-header">
+<a class="identity" href="index.html"><img class="identity-logo" src="logo-kemensos.jpg" alt=""><span class="identity-copy"><strong>Dinas Sosial</strong><small>Kabupaten Wakatobi</small></span></a>
+<a class="header-action" href="admin.html">← Ruang Admin</a>
+</header>
+<main class="section-wrap admin-page">
+<div class="section-label">PENYIAPAN AKUN</div>
+<h1>Setup Admin Pertama</h1>
+<p>Formulir ini hanya dapat digunakan sekali, selama belum ada akun Admin di database.</p>
+<form class="admin-login-page" id="admin-setup">
+<label>Gmail / email Admin<input name="email" type="email" autocomplete="username" maxlength="254" required></label>
+<label>Password Admin<input name="password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required><small>Minimal 12 karakter. Gunakan password unik.</small></label>
+<label>Bootstrap token<input name="token" type="password" autocomplete="off" required><small>Masukkan token rahasia yang disimpan di Cloudflare Worker sebagai <code>BOOTSTRAP_TOKEN</code>. Jangan bagikan token ini.</small></label>
+<button type="submit">Buat akun Admin</button>
+<p id="setup-feedback" role="status" aria-live="polite"></p>
+</form>
+<p><strong>Penting:</strong> Jangan pernah menaruh bootstrap token di file HTML, JavaScript, atau repository. Setelah akun pertama berhasil dibuat, endpoint setup akan menolak pembuatan akun berikutnya.</p>
+</main>
+<footer class="site-footer"><div class="footer-bottom"><p>PROTOTIPE WEBSITE · Bukan situs resmi atau kanal pelayanan aktif.</p></div></footer>
+</body>
+</html>
