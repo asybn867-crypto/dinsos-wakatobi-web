@@ -3,146 +3,220 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#173b35">
-<meta name="description" content="Portal informasi Dinas Sosial Kabupaten Wakatobi.">
-<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#102f2e">
+<meta name="description" content="Informasi layanan, program, organisasi, dan kegiatan Dinas Sosial Kabupaten Wakatobi.">
 <title>Dinas Sosial Kabupaten Wakatobi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/home.css">
-<script ></script>
+<script src="js/home.js" defer></script>
 </head>
-<body class="is-loading">
+<body>
 <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+<div class="gov-strip"><div class="site-container"><span>Pemerintah Kabupaten Wakatobi</span><span>Sulawesi Tenggara · Indonesia</span></div></div>
 <header class="site-header">
-  <a class="identity" href="#beranda" aria-label="Dinas Sosial Kabupaten Wakatobi, beranda">
-    <span class="identity-mark" aria-hidden="true">DS</span>
-    <span class="identity-copy"><strong>Dinas Sosial</strong><small>Kabupaten Wakatobi</small></span>
-  </a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">＋</span></button>
+  <div class="header-main">
+    <a class="identity" href="#beranda" aria-label="Dinas Sosial Kabupaten Wakatobi, beranda">
+      <span class="identity-emblem" aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="15.5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M8 21.5c3.1-2.2 5.8-2.2 9 0s5.9 2.2 11 0M10.5 25.5c2.7-1.6 5-1.6 7.5 0s4.9 1.6 7.5 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M18 8.2v6.2m-3.1-3.1H21m-5.3-2.2 4.4 4.4m0-4.4-4.4 4.4" stroke="#bb654c" stroke-width="1.35" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="identity-copy"><strong>DINAS SOSIAL</strong><small>Kabupaten Wakatobi</small></span>
+    </a>
+    <div class="header-meta"><span>Informasi dan layanan publik</span><a href="#kontak">Hubungi instansi <b>↗</b></a></div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">＋</span></button>
+  </div>
   <nav class="site-nav" id="site-nav" aria-label="Navigasi utama">
-    <a href="#profil">Profil</a><a href="#layanan">Layanan</a><a href="#informasi">Berita</a><a href="#struktur">Organisasi</a><a href="#ppid">PPID</a><a href="#faq">FAQ</a>
-    <a class="nav-contact" href="#kontak">Hubungi kami <span aria-hidden="true">↗</span></a>
+    <a href="#beranda">Beranda</a>
+    <a href="#profil">Profil</a>
+    <a href="#layanan">Layanan</a>
+    <a href="#informasi">Informasi</a>
+    <a href="#struktur">Organisasi</a>
+    <a href="#ppid">PPID</a>
+    <a href="#faq">FAQ</a>
+    <a class="nav-strong" href="#kontak">Kontak ↗</a>
   </nav>
 </header>
 <main id="konten">
   <section class="hero" id="beranda">
     <div class="hero-copy">
-      <p class="eyebrow"><span></span> PEMERINTAH KABUPATEN WAKATOBI</p>
-      <h1>Merawat<br><em>kepedulian.</em><br>Menguatkan kehidupan.</h1>
-      <p class="hero-description">Pusat informasi program, kegiatan, dan ruang lingkup pelayanan sosial Kabupaten Wakatobi.</p>
-      <div class="hero-actions"><a class="button button-primary" href="#layanan">Jelajahi layanan <span aria-hidden="true">↗</span></a><a class="hero-secondary" href="#profil">Kenali Dinas Sosial <span aria-hidden="true">↓</span></a></div>
+      <div class="eyebrow">Dinas Sosial · Kabupaten Wakatobi</div>
+      <h1>Merawat <em>kepedulian,</em> menguatkan masyarakat.</h1>
+      <p class="hero-description">Temukan informasi ruang lingkup layanan sosial, kegiatan, dokumen publik, dan jalur komunikasi Dinas Sosial Kabupaten Wakatobi.</p>
+      <div class="hero-actions">
+        <a class="button-dark" href="#layanan">Jelajahi layanan <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="#profil">Kenali instansi <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-foot"><span>Informasi publik</span><span>Wakatobi · Sulawesi Tenggara</span></div>
     </div>
-    <figure class="hero-visual">
-      <img src="dinsos-dari-depan.jpg" alt="Tampak depan kantor Dinas Sosial Kabupaten Wakatobi">
-      <figcaption><span>01 / WAKATOBI</span><span>Kantor Dinas Sosial</span></figcaption>
+    <figure class="hero-photo">
+      <img src="dinsos-dari-depan.jpg" alt="Tampak depan kantor Dinas Sosial Kabupaten Wakatobi" fetchpriority="high">
+      <figcaption class="photo-caption"><div><small>01 / WAKATOBI</small><strong>Kantor Dinas Sosial</strong></div><span>↗</span></figcaption>
     </figure>
-    <div class="hero-index" aria-hidden="true">DINAS SOSIAL <span>—</span> WAKATOBI</div>
   </section>
 
-  <section class="quick-access section-wrap" aria-labelledby="quick-title">
-    <div class="quick-intro"><span class="eyebrow dark-eyebrow">AKSES CEPAT / 01</span><h2 id="quick-title">Apa yang<br>Anda perlukan?</h2><p>Pilih informasi yang ingin Anda tuju.</p></div>
+  <section class="quick-panel" aria-label="Akses cepat">
+    <div class="quick-intro"><small>AKSES CEPAT / 01</small><strong>Mulai dari sini.</strong></div>
     <div class="quick-grid">
-      <a class="quick-link" href="#layanan"><span class="quick-icon" aria-hidden="true">↗</span><span><small>01 / INFORMASI</small><strong>Ruang lingkup layanan</strong><em>Kenali bidang dan jenis layanan sosial</em></span></a>
-      <a class="quick-link" href="pengaduan.html#buat-pengaduan"><span class="quick-icon" aria-hidden="true">＋</span><span><small>02 / ASPIRASI</small><strong>Pengaduan masyarakat</strong><em>Halaman demo, belum menerima laporan aktif</em></span></a>
-      <a class="quick-link" href="pengaduan.html#lacak"><span class="quick-icon" aria-hidden="true">⌕</span><span><small>03 / PELACAKAN</small><strong>Lacak laporan</strong><em>Simulasi pelacakan tiket pengaduan</em></span></a>
-      <a class="quick-link" href="#ppid"><span class="quick-icon" aria-hidden="true">▤</span><span><small>04 / DOKUMEN</small><strong>Informasi publik</strong><em>Dokumen dan dasar hukum instansi</em></span></a>
+      <a class="quick-link" href="#layanan"><span class="quick-arrow" aria-hidden="true">↗</span><small>LAYANAN</small><strong>Ruang lingkup layanan</strong><em>Kenali bidang tugas sosial</em></a>
+      <a class="quick-link" href="pengaduan.html#buat-pengaduan"><span class="quick-arrow" aria-hidden="true">↗</span><small>ASPIRASI</small><strong>Pengaduan dan masukan</strong><em>Prototype formulir masukan</em></a>
+      <a class="quick-link" href="pelacakan.html"><span class="quick-arrow" aria-hidden="true">↗</span><small>PELACAKAN</small><strong>Periksa kode tiket</strong><em>Lacak perkembangan laporan</em></a>
+      <a class="quick-link" href="#ppid"><span class="quick-arrow" aria-hidden="true">↗</span><small>PPID</small><strong>Dokumen publik</strong><em>Dasar hukum dan informasi</em></a>
     </div>
   </section>
 
-  <section class="intro section-wrap" id="profil">
-    <div class="section-kicker"><span>02</span><span>PROFIL INSTANSI</span><i></i></div>
-    <div class="intro-content">
-      <h2>Informasi yang dekat dengan kebutuhan masyarakat.</h2>
-      <div class="intro-copy"><p>Dinas Sosial Kabupaten Wakatobi membantu Bupati melaksanakan urusan pemerintahan bidang sosial yang menjadi kewenangan daerah, termasuk tugas pembantuan yang diberikan kepada daerah.</p><p class="muted">Berdasarkan Peraturan Bupati Wakatobi Nomor 56 Tahun 2022, fungsi dinas mencakup perumusan dan pelaksanaan kebijakan sosial, evaluasi dan pelaporan, serta administrasi dinas. Visi, misi, dan sejarah belum ditampilkan karena belum ditemukan dokumen resmi yang dapat diverifikasi.</p><a class="text-arrow" href="#verifikasi">Tentang status informasi <span aria-hidden="true">↗</span></a></div>
+  <section class="profile-section section-shell" id="profil">
+    <div class="profile-copy">
+      <div class="section-label"><span class="section-number">02</span> PROFIL INSTANSI</div>
+      <h2>Pelayanan sosial berangkat dari <em>kebutuhan warga.</em></h2>
+      <p>Dinas Sosial Kabupaten Wakatobi membantu Bupati melaksanakan urusan pemerintahan bidang sosial yang menjadi kewenangan daerah, termasuk tugas pembantuan yang diberikan kepada daerah.</p>
+      <p>Berdasarkan Peraturan Bupati Wakatobi Nomor 56 Tahun 2022, fungsi dinas mencakup perumusan dan pelaksanaan kebijakan sosial, evaluasi dan pelaporan, serta administrasi dinas.</p>
+      <div class="profile-note"><small>INFORMASI KELEMBAGAAN</small><p>Visi, misi, dan sejarah instansi belum ditampilkan karena dokumen resmi yang dapat diverifikasi belum tersedia pada portal ini.</p></div>
     </div>
-    <div class="profile-note"><span>WAKATOBI</span><p>Informasi publik yang jelas membantu masyarakat memahami layanan dan jalur komunikasi yang tepat.</p></div>
+    <aside class="profile-aside">
+      <div class="aside-mark"><span>FUNGSI UTAMA</span><b>✳</b></div>
+      <h3>Urusan pemerintahan bidang sosial.</h3>
+      <p>Informasi layanan disusun berdasarkan ruang lingkup tugas. Rincian program dan persyaratan perlu dikonfirmasi kepada petugas instansi.</p>
+      <a href="#struktur">Lihat susunan organisasi ↗</a>
+    </aside>
   </section>
 
-  <section class="program-section" id="layanan">
-    <div class="section-wrap">
-      <div class="section-topline"><div><div class="section-kicker light-kicker"><span>03</span><span>RUANG LINGKUP</span><i></i></div><h2>Bidang yang bekerja<br><em>untuk kesejahteraan sosial.</em></h2></div><p>Kategori berikut merangkum bidang tugas berdasarkan regulasi. Rincian program, persyaratan, dan jadwal perlu dikonfirmasi kepada instansi.</p></div>
-      <div class="service-list">
-        <article class="service-row"><span class="service-number">01</span><div><h3>Perlindungan dan jaminan sosial</h3><p>Perlindungan sosial korban bencana serta pelaksanaan kebijakan jaminan sosial keluarga.</p><small>PERLINDUNGAN SOSIAL</small></div><a href="#kontak" aria-label="Informasi perlindungan dan jaminan sosial">↗</a></article>
-        <article class="service-row"><span class="service-number">02</span><div><h3>Rehabilitasi sosial</h3><p>Fasilitasi dan koordinasi rehabilitasi sosial bagi anak, penyandang disabilitas, lanjut usia, dan kelompok yang membutuhkan dukungan sosial.</p><small>REHABILITASI SOSIAL</small></div><a href="#kontak" aria-label="Informasi rehabilitasi sosial">↗</a></article>
-        <article class="service-row"><span class="service-number">03</span><div><h3>Pemberdayaan sosial dan penanganan fakir miskin</h3><p>Pemberdayaan masyarakat serta verifikasi dan validasi data fakir miskin sesuai kewenangan daerah.</p><small>PEMBERDAYAAN SOSIAL</small></div><a href="#kontak" aria-label="Informasi pemberdayaan sosial">↗</a></article>
+  <section class="services-section" id="layanan">
+    <div class="section-shell">
+      <div class="services-head">
+        <div class="section-heading"><div class="section-label"><span class="section-number">03</span> RUANG LINGKUP</div><h2>Bidang kerja untuk kesejahteraan sosial.</h2></div>
+        <p>Ringkasan berikut menjelaskan bidang tugas berdasarkan regulasi. Ini bukan pengumuman bahwa pendaftaran program tertentu sedang dibuka.</p>
       </div>
-      <p class="service-footnote"><span>CATATAN</span> Informasi ini menjelaskan ruang lingkup tugas, bukan konfirmasi bahwa pendaftaran program tertentu sedang dibuka.</p>
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-top"><span>01 / PERLINDUNGAN</span><b aria-hidden="true">↗</b></div>
+          <h3>Perlindungan dan jaminan sosial</h3>
+          <p>Perlindungan sosial bagi korban bencana serta pelaksanaan kebijakan jaminan sosial keluarga sesuai kewenangan daerah.</p>
+          <a href="#kontak">Tanyakan informasi <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card">
+          <div class="service-top"><span>02 / REHABILITASI</span><b aria-hidden="true">↗</b></div>
+          <h3>Rehabilitasi sosial</h3>
+          <p>Fasilitasi dan koordinasi rehabilitasi sosial bagi anak, penyandang disabilitas, lanjut usia, dan kelompok yang membutuhkan dukungan sosial.</p>
+          <a href="#kontak">Tanyakan informasi <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card">
+          <div class="service-top"><span>03 / PEMBERDAYAAN</span><b aria-hidden="true">↗</b></div>
+          <h3>Pemberdayaan sosial dan penanganan fakir miskin</h3>
+          <p>Pemberdayaan masyarakat serta verifikasi dan validasi data fakir miskin sesuai ketentuan dan kewenangan daerah.</p>
+          <a href="#kontak">Tanyakan informasi <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+      <div class="service-foot"><strong>CATATAN</strong> Persyaratan, kuota, dan jadwal layanan dapat berbeda menurut program. Pastikan informasi terbaru melalui kanal instansi.</div>
     </div>
   </section>
 
-  <section class="news-section section-wrap" id="informasi">
-    <div class="section-heading"><div><div class="section-kicker"><span>04</span><span>KABAR DAN KEGIATAN</span><i></i></div><h2>Informasi Dinsos<br><em>Wakatobi.</em></h2></div><p>Berita dan pemberitaan terkait layanan sosial di Kabupaten Wakatobi. Setiap judul terhubung ke sumber aslinya.</p></div>
-    <div class="news-feature">
-      <div class="feature-art"><span>WAKATOBI</span><strong>Informasi<br>kesejahteraan<br>sosial.</strong><i aria-hidden="true">✳</i></div>
-      <div class="feature-copy"><span class="news-kicker">DATA KESEJAHTERAAN SOSIAL</span><h3>Pembaruan desil dan lonjakan layanan warga</h3><p>Kantor Dinas Sosial Wakatobi sempat dipadati warga untuk mengurus pembaruan data desil serta validasi data kesejahteraan sosial.</p><span class="feature-note">RINGKASAN PEMBERITAAN · PERLU PEMBARUAN TANGGAL</span></div>
+  <section class="news-section section-shell" id="informasi">
+    <div class="news-head">
+      <div class="section-heading"><div class="section-label"><span class="section-number">04</span> KABAR DAN KEGIATAN</div><h2>Informasi sosial <em>Wakatobi.</em></h2></div>
+      <p>Ringkasan pemberitaan terkait layanan sosial. Buka media sumber untuk membaca konteks dan tanggal publikasi selengkapnya.</p>
     </div>
-    <div class="news-list">
-      <article class="news-item"><span class="news-index">01</span><div><span class="news-kicker">JAMINAN KESEHATAN</span><h3>Penonaktifan peserta PBI-JK dan peninjauan kembali</h3><p>Kepala Dinas Sosial Wakatobi, La Yijo, menanggapi penonaktifan ribuan peserta PBI-JK yang rencananya akan ditinjau kembali agar bantuan tetap tepat sasaran.</p><a class="text-arrow" href="https://kendariinfo.com/11-ribu-peserta-pbi-jk-di-wakatobi-dinonaktifkan-kepala-dinsos-akan-ditinjau-kembali/" target="_blank" rel="noopener noreferrer">Baca sumber berita <span aria-hidden="true">↗</span></a></div><span class="news-out" aria-hidden="true">↗</span></article>
-      <article class="news-item"><span class="news-index">02</span><div><span class="news-kicker">LAYANAN DISABILITAS</span><h3>Kerja sama layanan disabilitas bersama Pengadilan Agama Wangi-Wangi</h3><p>Pengadilan Agama Wangi-Wangi dan Dinas Sosial Wakatobi mematangkan draf kerja sama peningkatan aksesibilitas layanan hukum dan sosial bagi penyandang disabilitas.</p><a class="text-arrow" href="https://www.pa-wangiwangi.go.id/web/publikasi/berita/jalin-kerja-sama%2C-pa-wangi-wangi-dan-dinsos-wakatobi-matangkan-draft-mou-layanan-disabilitas.html" target="_blank" rel="noopener noreferrer">Baca sumber berita <span aria-hidden="true">↗</span></a></div><span class="news-out" aria-hidden="true">↗</span></article>
-      <article class="news-item"><span class="news-index">03</span><div><span class="news-kicker">RESPONS KEDARURATAN</span><h3>Penyaluran bantuan korban kebakaran dan penanganan PMKS</h3><p>Dinas Sosial Wakatobi menyalurkan bantuan logistik darurat kepada korban kebakaran serta melakukan pendataan berkala terhadap kelompok yang membutuhkan pelayanan sosial.</p><a class="text-arrow" href="https://kabarwakatobi.com/dinsos-reaksi-cepat-salurkan-bantuan-untuk-korban-kebakaran-di-wakatobi/" target="_blank" rel="noopener noreferrer">Baca sumber terkait <span aria-hidden="true">↗</span></a></div><span class="news-out" aria-hidden="true">↗</span></article>
-    </div>
-  </section>
-
-  <section class="structure-section" id="struktur">
-    <div class="section-wrap">
-      <div class="section-heading"><div><div class="section-kicker"><span>05</span><span>TATA KELOLA</span><i></i></div><h2>Struktur organisasi</h2></div><p>Susunan unit kerja mengacu pada Peraturan Bupati Wakatobi Nomor 56 Tahun 2022. Nama pejabat aktif belum ditampilkan karena memerlukan konfirmasi terbaru.</p></div>
-      <div class="org-chart" aria-label="Bagan struktur organisasi Dinas Sosial Kabupaten Wakatobi">
-        <div class="org-node org-top"><strong>Kepala Dinas</strong><small>Pimpinan dan penanggung jawab penyelenggaraan urusan sosial</small></div>
-        <div class="org-connector" aria-hidden="true"></div>
-        <div class="org-branches">
-          <article class="org-node"><strong>Sekretariat</strong><small>Program, anggaran, administrasi keuangan, kepegawaian, perlengkapan, dan urusan umum</small><span>Subbagian Umum dan Kepegawaian</span><span>Kelompok Jabatan Fungsional</span></article>
-          <article class="org-node"><strong>Bidang Perlindungan dan Jaminan Sosial</strong><small>Perlindungan sosial korban bencana serta jaminan sosial keluarga</small><span>Kelompok Jabatan Fungsional</span></article>
-          <article class="org-node"><strong>Bidang Rehabilitasi Sosial</strong><small>Rehabilitasi sosial anak, penyandang disabilitas, lanjut usia, dan kelompok yang membutuhkan pelayanan sosial</small><span>Kelompok Jabatan Fungsional</span></article>
-          <article class="org-node"><strong>Bidang Pemberdayaan Sosial dan Penanganan Fakir Miskin</strong><small>Pemberdayaan masyarakat serta verifikasi dan validasi data fakir miskin</small><span>Kelompok Jabatan Fungsional</span></article>
+    <div class="news-layout">
+      <article class="news-feature">
+        <div class="news-feature-top"><span>JAMINAN KESEHATAN / PBI-JK</span><b aria-hidden="true">✳</b></div>
+        <div>
+          <div class="news-feature-code">PBI-JK</div>
+          <h3>Penonaktifan peserta PBI-JK di Wakatobi menjadi perhatian.</h3>
+          <p>Pemberitaan mengenai 11 ribu peserta PBI-JK yang dinonaktifkan serta rencana peninjauan kembali oleh Dinas Sosial Wakatobi.</p>
+          <a class="news-source" href="https://kendariinfo.com/11-ribu-peserta-pbi-jk-di-wakatobi-dinonaktifkan-kepala-dinsos-akan-ditinjau-kembali/" target="_blank" rel="noopener noreferrer">Baca berita di Kendariinfo <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="org-support"><div class="org-node"><strong>Unit Pelaksana Teknis Daerah (UPTD)</strong><small>Pelaksana teknis operasional dan/atau penunjang sesuai ketentuan pembentukan</small></div><div class="org-node"><strong>Kelompok Jabatan Fungsional</strong><small>Pelaksana tugas sesuai keahlian dan keterampilan masing-masing</small></div></div>
+      </article>
+      <div class="news-stack">
+        <article class="news-item">
+          <small>AKSESIBILITAS / LAYANAN DISABILITAS</small>
+          <h3>Kerja sama layanan disabilitas bersama Pengadilan Agama Wangi-Wangi.</h3>
+          <p>Rencana peningkatan aksesibilitas layanan hukum dan sosial bagi penyandang disabilitas.</p>
+          <a href="https://www.pa-wangiwangi.go.id/web/publikasi/berita/jalin-kerja-sama%2C-pa-wangi-wangi-dan-dinsos-wakatobi-matangkan-draft-mou-layanan-disabilitas.html" target="_blank" rel="noopener noreferrer">Baca sumber berita <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="news-item">
+          <small>RESPONS KEDARURATAN / BANTUAN</small>
+          <h3>Penyaluran bantuan bagi korban kebakaran di Wakatobi.</h3>
+          <p>Pemberitaan mengenai respons bantuan logistik darurat untuk warga terdampak kebakaran.</p>
+          <a href="https://kabarwakatobi.com/dinsos-reaksi-cepat-salurkan-bantuan-untuk-korban-kebakaran-di-wakatobi/" target="_blank" rel="noopener noreferrer">Baca sumber berita <span aria-hidden="true">↗</span></a>
+        </article>
       </div>
-      <p class="org-source">Dasar susunan: Perbup Wakatobi Nomor 56 Tahun 2022, Pasal 8. <a href="https://peraturan.bpk.go.id/Details/279773/perbup-kab-wakatobi-no-56-tahun-2022" target="_blank" rel="noopener noreferrer">Lihat dokumen pada JDIH BPK ↗</a>.</p>
-      <p class="org-note">Bagan ini menggambarkan susunan jabatan/unit menurut regulasi, bukan daftar nama pejabat yang sedang menjabat.</p>
+    </div>
+    <p class="news-disclaimer">Konten ini merupakan ringkasan pemberitaan media, bukan pengumuman resmi program atau jadwal layanan.</p>
+  </section>
+
+  <section class="organization-section" id="struktur">
+    <div class="section-shell">
+      <div class="organization-head">
+        <div><div class="section-label"><span class="section-number">05</span> TATA KELOLA</div><h2>Struktur organisasi.</h2></div>
+        <p>Bagan merangkum susunan unit kerja menurut Peraturan Bupati Wakatobi Nomor 56 Tahun 2022. Nama pejabat aktif belum dicantumkan karena memerlukan konfirmasi terbaru.</p>
+      </div>
+      <div class="org-tree" aria-label="Bagan struktur organisasi Dinas Sosial Kabupaten Wakatobi">
+        <div class="org-lead"><small>PIMPINAN</small><strong>Kepala Dinas</strong></div>
+        <div class="org-stem" aria-hidden="true"></div>
+        <div class="org-branches">
+          <article class="org-card"><small>UNIT 01 / SEKRETARIAT</small><h3>Sekretariat</h3><p>Program, anggaran, administrasi keuangan, kepegawaian, perlengkapan, dan urusan umum.</p><span class="org-tag">Subbagian Umum dan Kepegawaian</span></article>
+          <article class="org-card"><small>UNIT 02 / BIDANG</small><h3>Perlindungan dan Jaminan Sosial</h3><p>Perlindungan sosial korban bencana dan jaminan sosial keluarga.</p></article>
+          <article class="org-card"><small>UNIT 03 / BIDANG</small><h3>Rehabilitasi Sosial</h3><p>Rehabilitasi sosial anak, penyandang disabilitas, lanjut usia, dan kelompok yang membutuhkan pelayanan sosial.</p></article>
+          <article class="org-card"><small>UNIT 04 / BIDANG</small><h3>Pemberdayaan Sosial dan Penanganan Fakir Miskin</h3><p>Pemberdayaan masyarakat serta verifikasi dan validasi data fakir miskin.</p></article>
+        </div>
+        <div class="org-support">
+          <article><b>05</b><span><strong>Unit Pelaksana Teknis Daerah (UPTD)</strong><br>Pelaksana teknis operasional dan/atau penunjang sesuai ketentuan pembentukan.</span></article>
+          <article><b>06</b><span><strong>Kelompok Jabatan Fungsional</strong><br>Pelaksana tugas sesuai keahlian dan keterampilan masing-masing.</span></article>
+        </div>
+      </div>
+      <p class="org-source">Dasar susunan: Perbup Wakatobi Nomor 56 Tahun 2022, Pasal 8. <a href="https://peraturan.bpk.go.id/Details/279773/perbup-kab-wakatobi-no-56-tahun-2022" target="_blank" rel="noopener noreferrer">Buka dokumen pada JDIH BPK ↗</a>.</p>
     </div>
   </section>
 
-  <section class="ppid-section section-wrap" id="ppid">
-    <div class="section-heading"><div><div class="section-kicker"><span>06</span><span>PPID / INFORMASI PUBLIK</span><i></i></div><h2>Dokumen yang<br><em>perlu Anda ketahui.</em></h2></div><p>Ruang dokumen publik. Status dokumen ditampilkan secara terbuka agar pengunjung mengetahui mana yang sudah tersedia dan mana yang masih menunggu verifikasi.</p></div>
-    <div class="document-list">
-      <a href="#verifikasi"><span>01</span><strong>Profil dan struktur organisasi</strong><small>Menunggu verifikasi dokumen</small><b>↗</b></a>
-      <a href="#verifikasi"><span>02</span><strong>Standar pelayanan</strong><small>Dokumen resmi belum tersedia</small><b>↗</b></a>
-      <a href="https://peraturan.bpk.go.id/Details/279773/perbup-kab-wakatobi-no-56-tahun-2022" target="_blank" rel="noopener noreferrer"><span>03</span><strong>Perbup Wakatobi Nomor 56 Tahun 2022</strong><small>Dasar organisasi dan tata kerja</small><b>↗</b></a>
-      <a href="#verifikasi"><span>04</span><strong>Laporan dan publikasi</strong><small>Menunggu persetujuan publikasi</small><b>↗</b></a>
+  <section class="ppid-section section-shell" id="ppid">
+    <div class="ppid-layout">
+      <div class="ppid-intro"><div class="section-label"><span class="section-number">06</span> PPID / INFORMASI PUBLIK</div><h2>Dokumen dan keterbukaan informasi.</h2><p>Dokumen yang sudah dapat dirujuk dipisahkan dari informasi yang masih menunggu verifikasi.</p></div>
+      <div class="document-list">
+        <a class="document-row" href="#verifikasi"><span>01</span><div><strong>Profil dan struktur organisasi</strong><small>Informasi kelembagaan</small></div><span class="document-status">Menunggu verifikasi</span><b>↗</b></a>
+        <a class="document-row" href="#verifikasi"><span>02</span><div><strong>Standar pelayanan</strong><small>Persyaratan dan prosedur layanan</small></div><span class="document-status">Dokumen belum tersedia</span><b>↗</b></a>
+        <a class="document-row" href="https://peraturan.bpk.go.id/Details/279773/perbup-kab-wakatobi-no-56-tahun-2022" target="_blank" rel="noopener noreferrer"><span>03</span><div><strong>Perbup Wakatobi Nomor 56 Tahun 2022</strong><small>Dasar organisasi dan tata kerja</small></div><span class="document-status">Dokumen tersedia</span><b>↗</b></a>
+        <a class="document-row" href="#verifikasi"><span>04</span><div><strong>Laporan dan publikasi</strong><small>Informasi kinerja dan kegiatan</small></div><span class="document-status">Menunggu persetujuan</span><b>↗</b></a>
+      </div>
     </div>
   </section>
 
   <section class="faq-section" id="faq">
-    <div class="section-wrap faq-layout">
-      <div><div class="section-kicker"><span>07</span><span>PUSAT BANTUAN</span><i></i></div><h2>Pertanyaan<br><em>yang sering muncul.</em></h2><p>Jawaban singkat tentang informasi dan status portal ini.</p></div>
+    <div class="section-shell faq-layout">
+      <div class="faq-intro"><div class="section-label"><span class="section-number">07</span> PUSAT BANTUAN</div><h2>Pertanyaan yang <em>sering muncul.</em></h2><p>Informasi singkat mengenai layanan dan penggunaan portal.</p></div>
       <div class="faq-list">
-        <details><summary>Apakah pengaduan online sudah aktif?<span>＋</span></summary><p>Belum. Halaman pengaduan dan pelacakan saat ini masih berupa prototype. Jangan mengirimkan data warga atau laporan nyata melalui formulir demo.</p></details>
-        <details><summary>Bagaimana mengetahui persyaratan bantuan sosial?<span>＋</span></summary><p>Persyaratan dan jadwal dapat berbeda menurut program. Konfirmasikan informasi terbaru langsung kepada Dinas Sosial melalui kanal resmi yang sudah diverifikasi.</p></details>
-        <details><summary>Apakah portal ini menampilkan data penerima bantuan?<span>＋</span></summary><p>Tidak. Portal ini tidak menyediakan pencarian data pribadi penerima bantuan dan tidak meminta NIK, nomor KK, atau dokumen identitas.</p></details>
-        <details><summary>Di mana saya dapat membaca dasar hukum?<span>＋</span></summary><p>Dokumen Peraturan Bupati Wakatobi Nomor 56 Tahun 2022 dapat dibuka melalui tautan JDIH BPK pada bagian dokumen publik.</p></details>
+        <details><summary>Apakah formulir pengaduan online merupakan kanal resmi?</summary><p>Halaman pengaduan pada portal ini masih berupa prototype. Untuk pengaduan resmi, gunakan SP4N-LAPOR! atau konfirmasikan kanal yang berlaku kepada instansi.</p></details>
+        <details><summary>Bagaimana mengetahui persyaratan bantuan sosial?</summary><p>Persyaratan dan jadwal berbeda menurut program. Konfirmasikan informasi terbaru kepada Dinas Sosial sebelum menyiapkan dokumen.</p></details>
+        <details><summary>Apakah portal ini menampilkan data penerima bantuan?</summary><p>Tidak. Portal ini tidak menyediakan pencarian data pribadi penerima bantuan dan tidak meminta NIK, nomor KK, atau dokumen identitas.</p></details>
+        <details><summary>Di mana saya dapat membaca dasar hukum organisasi?</summary><p>Peraturan Bupati Wakatobi Nomor 56 Tahun 2022 dapat dibuka melalui tautan JDIH BPK pada bagian PPID.</p></details>
       </div>
     </div>
   </section>
 
   <section class="contact-section" id="kontak">
-    <div class="section-wrap">
-      <div class="section-kicker light-kicker"><span>08</span><span>KONTAK DAN MEDIA SOSIAL</span><i></i></div>
-      <div class="contact-layout"><div><h2>Terhubung dengan<br><em>Dinas Sosial Wakatobi.</em></h2><p>Gunakan kanal resmi untuk memastikan informasi layanan, persyaratan, dan jadwal terbaru.</p></div><div class="contact-actions"><a class="contact-map" href="https://maps.app.goo.gl/2FkVuDJSB2kvYJpP6" target="_blank" rel="noopener noreferrer"><span>LOKASI KANTOR</span><strong>Lihat lokasi di Google Maps</strong><b>↗</b></a><a href="https://www.facebook.com/share/1PDdCA19w4/" target="_blank" rel="noopener noreferrer">Facebook <span>↗</span></a><a href="https://www.instagram.com/dinsos.wakatobi?exln=MWNtM3VzYnp3ZDNqcQ==" target="_blank" rel="noopener noreferrer">Instagram <span>↗</span></a></div></div>
-      <div class="contact-caution"><span>INFORMASI KONTAK</span><p>Nomor telepon dan alamat email yang pernah dicantumkan masih memerlukan verifikasi instansi sebelum digunakan sebagai kanal layanan aktif.</p></div>
+    <div class="section-shell">
+      <div class="contact-layout">
+        <div class="contact-copy"><div class="section-label"><span class="section-number">08</span> KONTAK DAN MEDIA SOSIAL</div><h2>Terhubung dengan <em>Dinas Sosial Wakatobi.</em></h2><p>Gunakan kanal yang tersedia untuk menemukan lokasi kantor dan mengikuti informasi dari akun media sosial Dinas Sosial Wakatobi.</p></div>
+        <div class="contact-links">
+          <a class="contact-link" href="https://maps.app.goo.gl/2FkVuDJSB2kvYJpP6" target="_blank" rel="noopener noreferrer">Lokasi kantor di Google Maps <span aria-hidden="true">↗</span></a>
+          <a class="contact-link" href="https://www.facebook.com/share/1PDdCA19w4/" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">↗</span></a>
+          <a class="contact-link" href="https://www.instagram.com/dinsos.wakatobi?exln=MWNtM3VzYnp3ZDNqcQ==" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="contact-note"><strong>CATATAN KONTAK</strong> Nomor telepon dan alamat email belum ditampilkan karena belum terverifikasi sebagai kanal layanan aktif.</div>
     </div>
   </section>
 
-  <section class="verification-section" id="verifikasi"><div class="section-wrap verification-inner"><span>CATATAN KETERBUKAAN</span><p>Portal ini merupakan prototype informasi. Konten kelembagaan, pejabat, program, persyaratan, kontak, dan dokumen perlu diverifikasi serta disetujui oleh Dinas Sosial Kabupaten Wakatobi sebelum dipublikasikan sebagai informasi resmi.</p><a href="admin.html">Masuk pengelola konten <span aria-hidden="true">↗</span></a></div></section>
+  <section id="verifikasi" class="section-shell" style="padding:18px 0;color:#718078;font-size:10px">Portal informasi dalam tahap penyiapan. Konten kelembagaan, program, persyaratan, dan dokumen perlu dikonfirmasi oleh Dinas Sosial Kabupaten Wakatobi sebelum menjadi informasi resmi.</section>
 </main>
 <footer class="site-footer">
-  <a class="identity footer-identity" href="#beranda"><span class="identity-mark" aria-hidden="true">DS</span><span class="identity-copy"><strong>Dinas Sosial</strong><small>Kabupaten Wakatobi</small></span></a>
-  <p>Portal informasi prototype · Bukan kanal pelayanan resmi yang aktif.</p>
-  <span>© <span id="year">2026</span> DINAS SOSIAL WAKATOBI</span>
+  <div class="footer-main">
+    <a class="identity footer-identity" href="#beranda"><span class="identity-emblem" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="15.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 21.5c3.1-2.2 5.8-2.2 9 0s5.9 2.2 11 0M10.5 25.5c2.7-1.6 5-1.6 7.5 0s4.9 1.6 7.5 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M18 8.2v6.2m-3.1-3.1H21" stroke="#bb654c" stroke-width="1.35" stroke-linecap="round"/></svg></span><span class="identity-copy"><strong>DINAS SOSIAL</strong><small>Kabupaten Wakatobi</small></span></a>
+    <p>Portal informasi publik · Konten perlu diverifikasi oleh instansi sebelum dipublikasikan sebagai informasi resmi.</p>
+    <span>© <span id="year">2026</span> DINAS SOSIAL WAKATOBI</span>
+  </div>
 </footer>
-<script>
-(()=>{const button=document.querySelector(".menu-toggle"),nav=document.querySelector(".site-nav");if(button&&nav){button.addEventListener("click",()=>{const open=button.getAttribute("aria-expanded")!=="true";button.setAttribute("aria-expanded",String(open));nav.classList.toggle("is-open",open)});nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{button.setAttribute("aria-expanded","false");nav.classList.remove("is-open")}))}const year=document.querySelector("#year");if(year)year.textContent=new Date().getFullYear()})();
-</script>
 </body>
 </html>
