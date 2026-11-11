@@ -312,3 +312,41 @@ button,input,select,textarea{font:inherit}
 .contact-list{grid-template-columns:1fr}
 .contact-item,.contact-item+.contact-item{padding:17px 0;border-left:0;border-bottom:1px solid var(--line)}
 }
+
+/* Homepage portal: quick access, citizen guide and live publication feed */
+.quick-access{padding-top:56px;padding-bottom:66px;background:#fff}
+.quick-access-heading,.latest-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:20px 0 25px}
+.quick-access-heading h2,.guide-heading h2,.latest-heading h2{margin:0;color:var(--forest-dark);font-size:clamp(30px,3.8vw,46px);line-height:1.12;letter-spacing:-.05em}
+.quick-access-heading p,.guide-heading>p,.latest-heading p{margin:9px 0 0;color:var(--muted);font-size:13px;line-height:1.8}
+.quick-access-all{color:var(--green);font-size:12px;font-weight:750;text-decoration:none;white-space:nowrap}
+.quick-access-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.quick-access-card{display:grid;grid-template-columns:42px 1fr 16px;gap:12px;align-items:center;min-height:112px;padding:17px 15px;background:#f7f8f4;border:1px solid #e1e7df;text-decoration:none;transition:transform .2s,border-color .2s,background .2s}
+.quick-access-card:hover{transform:translateY(-3px);background:#fff;border-color:#9eb6a5}
+.quick-access-icon{width:40px;height:40px;display:grid;place-items:center;background:#e7eee6;color:var(--forest);font-size:23px}
+.quick-access-card strong,.quick-access-card small{display:block}
+.quick-access-card strong{color:var(--forest-dark);font-size:13px;line-height:1.4}
+.quick-access-card small{margin-top:5px;color:var(--muted);font-size:10px;line-height:1.55}
+.quick-access-card>b{color:#9a7d3d;font-size:17px}
+.guide-section{background:#edf2eb;padding-top:70px;padding-bottom:72px}
+.guide-heading{display:grid;grid-template-columns:1fr .65fr;gap:8%;align-items:end;margin:20px 0 28px}
+.guide-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #cfdacf;border-bottom:1px solid #cfdacf}
+.guide-steps article{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:23px 20px 23px 0}
+.guide-steps article+article{padding-left:20px;border-left:1px solid #cfdacf}
+.guide-steps article>span{color:#a0823d;font-size:12px;font-weight:800}
+.guide-steps h3{margin:0;color:var(--forest-dark);font-size:16px}
+.guide-steps p{margin:7px 0 0;color:var(--muted);font-size:11px;line-height:1.8}
+.guide-disclaimer{margin:15px 0 0;color:#77847a;font-size:10px}
+.latest-section{padding-top:70px;padding-bottom:76px;background:#fff}
+.latest-heading{margin-bottom:25px}
+.latest-live{display:inline-flex;align-items:center;gap:8px;color:#6c806f;font-size:9px;font-weight:800;letter-spacing:.1em;white-space:nowrap}
+.latest-live i{width:7px;height:7px;border-radius:50%;background:#76a17b}
+.latest-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.public-content-card{padding:20px;background:#f8f9f5;border:1px solid #e2e8e0}
+.public-content-type{color:#987b3d;font-size:9px;font-weight:850;letter-spacing:.12em}
+.public-content-card h3{margin:10px 0 7px;color:var(--forest-dark);font-size:18px;line-height:1.35}
+.public-content-card p{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.8}
+.public-content-card>small{display:block;color:#8a958d;font-size:10px}
+.public-content-card .inline-link{margin-top:12px}
+.public-content-state{grid-column:1/-1;margin:0;padding:24px;background:#f7f8f4;border:1px dashed #d6e0d6;color:#77847a;font-size:12px}
+@media(max-width:900px){.quick-access-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.quick-access-heading,.latest-heading{align-items:flex-start;flex-direction:column}.guide-heading{grid-template-columns:1fr;gap:12px}.guide-steps{grid-template-columns:1fr}.guide-steps article,.guide-steps article+article{padding:18px 0;border-left:0}.guide-steps article+article{border-top:1px solid #cfdacf}.latest-grid{grid-template-columns:1fr}.latest-live{font-size:8px}.quick-access-card{min-height:105px;padding:13px 11px;grid-template-columns:34px 1fr 12px;gap:9px}.quick-access-icon{width:34px;height:34px}}
