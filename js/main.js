@@ -6,7 +6,7 @@ const initPublicStructure=async()=>{
  try{
   const data=await api("/api/public-structure"),items=data.items||[];
   host.replaceChildren();
-  const normalize=value=>(value||"").toLocaleLowerCase("id").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/[^a-z0-9]/g,"");
+  const normalize=value=>(value||"").toLocaleLowerCase("id").replace(/[^a-z0-9]/g,"");
   const byName=new Map();
   for(const item of items){const key=normalize(item.name);if(key&&!byName.has(key))byName.set(key,item)}
   const officialUnits=[
