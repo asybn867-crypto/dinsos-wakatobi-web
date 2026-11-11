@@ -484,3 +484,5 @@ button,input,select,textarea{font:inherit}
 .social-links>a b{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#1877f2;color:#fff;font:800 17px Arial}
 .social-links>a i{font-style:normal;color:var(--muted)}
 .social-links>a:hover{color:#1877f2}
+
+.social-links>a .instagram-mark{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);font-size:19px}
