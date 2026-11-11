@@ -486,3 +486,4 @@ button,input,select,textarea{font:inherit}
 .social-links>a:hover{color:#1877f2}
 
 .social-links>a .instagram-mark{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);font-size:19px}
+.social-links>a .instagram-mark svg{display:block;width:15px;height:15px;color:#fff}
