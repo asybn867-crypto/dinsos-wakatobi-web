@@ -694,3 +694,14 @@ body{background:var(--paper);background-image:linear-gradient(90deg,transparent 
  html{scroll-behavior:auto}
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Typography: expressive display + highly readable interface */
+:root{--sans:"Manrope","Segoe UI",Arial,sans-serif;--display:"Bricolage Grotesque","Manrope",sans-serif}
+body{font-family:var(--sans)}
+h1,h2,h3,.identity-copy strong,.quick-access-card strong,.service-row h3,.news-item h3,.news-feature h3,.faq-list summary,.contact-item a,.footer-identity strong{font-family:var(--display)}
+.hero h1{font-weight:750;letter-spacing:-.055em}
+.intro-layout h2,.quick-access-heading h2,.section-heading h2,.guide-heading h2,.contact-heading h2{font-weight:750;letter-spacing:-.045em}
+.service-row h3,.news-feature h3,.news-item h3{font-weight:700;letter-spacing:-.035em}
+.faq-list summary{font-weight:650;letter-spacing:-.015em}
+.identity-copy strong{letter-spacing:-.035em}
