@@ -436,3 +436,15 @@ button,input,select,textarea{font:inherit}
 .org-chart .org-unit{height:100%;display:flex;flex-direction:column}
 .org-chart .org-unit h3{flex:none}
 .org-chart .org-unit p{flex:1}
+
+/* Galeri foto dan berita Wangi-Wangi */
+.news-gallery{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin:0 0 46px}
+.news-gallery figure{position:relative;min-width:0;margin:0;overflow:hidden;background:#e6ece5}
+.news-gallery img{display:block;width:100%;height:260px;object-fit:cover;transition:transform .45s}
+.news-gallery figure:hover img{transform:scale(1.025)}
+.news-gallery figcaption{display:flex;justify-content:space-between;gap:12px;padding:11px 13px;color:var(--forest-dark);font-size:11px;font-weight:700}
+.news-gallery figcaption span{color:var(--muted);font-size:10px;font-weight:400;text-align:right}
+.news-feature .news-photo{display:block}
+.news-feature .news-photo img{display:block;object-fit:cover}
+@media(max-width:760px){.news-gallery{grid-template-columns:1fr 1fr;gap:10px}.news-gallery img{height:190px}.news-gallery figcaption{display:block}.news-gallery figcaption span{display:block;margin-top:3px;text-align:left}}
+@media(max-width:520px){.news-gallery{grid-template-columns:1fr;gap:13px;margin-bottom:32px}.news-gallery img{height:220px}}
