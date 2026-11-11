@@ -377,3 +377,26 @@ button,input,select,textarea{font:inherit}
 
 .org-children{display:grid;gap:8px;margin-top:12px;padding-left:12px;border-left:1px solid #cbd9cc}.org-children .org-unit{padding:12px;background:#fff;border-top-width:2px}.org-children .org-unit h3{font-size:14px;margin:6px 0}.org-children .org-unit p{min-height:0}.org-children .org-sub{font-size:10px}
 .service-points{grid-column:1/-1;margin:2px 0 0 172px;padding:14px 17px;background:#f5f7f2;border-left:2px solid #b79a55;border-radius:0 8px 8px 0;color:var(--muted);font-size:12px;line-height:1.8}.service-points strong{display:block;margin-bottom:5px;color:var(--forest-dark);font-size:12px}.service-points ul{margin:0 0 7px;padding-left:18px}.service-points li{padding:2px 0}.service-points span{display:block;color:#7d8981;font-size:11px}.service-row{align-items:start}.service-row h3{font-size:19px}.service-row p{font-size:12px;line-height:1.85}@media(max-width:1050px){.service-points{margin-left:134px}}@media(max-width:760px){.service-points{margin:8px 0 0;padding:12px 14px}.service-row{gap:8px}.service-row h3{font-size:18px}}
+
+/* Struktur organisasi: tetap berbentuk bagan pada layar kecil */
+.org-chart{width:100%;overflow-x:auto;padding:28px 2px 12px}
+.org-branches{grid-template-columns:repeat(4,minmax(0,1fr));align-items:start;gap:16px}
+.org-unit{min-width:0;overflow-wrap:anywhere}
+.org-children{grid-template-columns:1fr;min-width:0}
+@media(max-width:760px){
+ .org-branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}
+ .org-branches:before{left:25%;right:25%}
+ .org-unit{padding:14px 11px}
+ .org-unit:before{display:block}
+}
+@media(max-width:520px){
+ .org-chart{padding-inline:0}
+ .org-branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 9px}
+ .org-branches:before{left:25%;right:25%}
+ .org-unit{padding:12px 9px}
+ .org-unit h3{font-size:14px;line-height:1.4}
+ .org-unit p{font-size:10px;line-height:1.65}
+ .org-children{padding-left:8px;gap:7px}
+ .org-children .org-unit{padding:10px 8px}
+ .org-children .org-unit h3{font-size:12px}
+}
