@@ -378,33 +378,36 @@ button,input,select,textarea{font:inherit}
 .org-children{display:grid;gap:8px;margin-top:12px;padding-left:12px;border-left:1px solid #cbd9cc}.org-children .org-unit{padding:12px;background:#fff;border-top-width:2px}.org-children .org-unit h3{font-size:14px;margin:6px 0}.org-children .org-unit p{min-height:0}.org-children .org-sub{font-size:10px}
 .service-points{grid-column:1/-1;margin:2px 0 0 172px;padding:14px 17px;background:#f5f7f2;border-left:2px solid #b79a55;border-radius:0 8px 8px 0;color:var(--muted);font-size:12px;line-height:1.8}.service-points strong{display:block;margin-bottom:5px;color:var(--forest-dark);font-size:12px}.service-points ul{margin:0 0 7px;padding-left:18px}.service-points li{padding:2px 0}.service-points span{display:block;color:#7d8981;font-size:11px}.service-row{align-items:start}.service-row h3{font-size:19px}.service-row p{font-size:12px;line-height:1.85}@media(max-width:1050px){.service-points{margin-left:134px}}@media(max-width:760px){.service-points{margin:8px 0 0;padding:12px 14px}.service-row{gap:8px}.service-row h3{font-size:18px}}
 
-/* Bagan organisasi: setiap unit menjadi node terpisah */
-.org-chart{width:100%;overflow-x:auto;overflow-y:hidden;padding:28px 2px 20px}
-.org-lead{margin-bottom:45px}
-.org-lead:after{height:45px}
-.org-branches,.org-children{display:flex;justify-content:center;align-items:flex-start;gap:18px;width:max-content;min-width:100%}
-.org-branches{position:relative;padding:22px 16px 0}
-.org-branches:before,.org-children:before{position:absolute;top:0;left:16px;right:16px;height:1px;background:#b8c9bd;content:""}
-.org-node{position:relative;display:flex;flex:0 0 auto;flex-direction:column;align-items:center;min-width:0}
-.org-node:before{position:absolute;top:-23px;left:50%;width:1px;height:23px;background:#b8c9bd;content:""}
-.org-unit{position:relative;flex:0 0 230px;width:230px;min-width:0;overflow-wrap:anywhere;padding:16px 14px;background:#f7f9f5;border:1px solid var(--line);border-top:3px solid var(--green)}
+/* Susunan organisasi: grid stabil dengan cabang bersarang */
+.org-chart{width:100%;overflow-x:auto;overflow-y:visible;padding:28px 2px 20px}
+.org-lead{margin-bottom:38px}
+.org-lead:after{height:38px}
+.org-branches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:start;gap:26px 16px;width:100%;min-width:0;padding:0}
+.org-branches:before{display:none}
+.org-node{position:relative;display:flex;flex-direction:column;align-items:stretch;width:100%;min-width:0}
+.org-node:before{display:none}
+.org-unit{position:relative;width:100%;min-width:0;flex:0 1 auto;padding:16px 14px;background:#f7f9f5;border:1px solid var(--line);border-top:3px solid var(--green);overflow-wrap:anywhere}
 .org-unit:before{display:none}
-.org-unit h3{margin:8px 0;color:var(--forest-dark);font-size:16px;line-height:1.35}
-.org-unit p{min-height:0;margin:0;color:var(--muted);font-size:11px;line-height:1.7}
-.org-node:has(>.org-children)>.org-unit:after{position:absolute;left:50%;top:100%;height:23px;width:1px;background:#b8c9bd;content:""}
-.org-children{position:relative;gap:12px;margin-top:23px;padding:22px 8px 0}
-.org-children:before{left:8px;right:8px}
-.org-children>.org-node:before{top:-23px;height:23px}
-.org-children>.org-node>.org-unit{flex-basis:190px;width:190px;padding:12px 11px}
+.org-unit h3{margin:8px 0;color:var(--forest-dark);font-size:16px;line-height:1.4}
+.org-unit p{min-height:0;margin:0;color:var(--muted);font-size:11px;line-height:1.75}
+.org-node:has(>.org-children)>.org-unit:after{position:absolute;left:50%;top:100%;height:19px;width:1px;background:#b8c9bd;content:""}
+.org-children{display:grid;grid-template-columns:1fr;gap:10px;width:100%;min-width:0;margin:19px 0 0;padding:12px 0 0 14px;border-top:1px solid #b8c9bd;border-left:1px solid #b8c9bd}
+.org-children:before{display:none}
+.org-children>.org-node{width:100%;min-width:0}
+.org-children>.org-node>.org-unit{width:100%;padding:12px 11px;border-top-width:2px;background:#fff}
 .org-children .org-unit h3{font-size:14px;margin:6px 0}
-.org-children .org-unit p{min-height:0}
+.org-children .org-unit p{font-size:10px}
 .org-sub{margin-top:9px;padding-top:8px;border-top:1px solid #e0e8df;color:#65766a;font-size:10px;line-height:1.6}
-@media(max-width:760px){
+@media(max-width:900px){
+ .org-branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}
+}
+@media(max-width:520px){
  .org-chart{padding-inline:0}
- .org-branches{justify-content:flex-start;gap:14px;padding-inline:12px}
- .org-children{justify-content:flex-start;gap:9px;padding-inline:6px}
- .org-unit{flex-basis:205px;width:205px;padding:13px 11px}
- .org-children>.org-node>.org-unit{flex-basis:175px;width:175px;padding:10px 9px}
- .org-unit h3{font-size:14px}
- .org-unit p{font-size:10px}
+ .org-branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 9px}
+ .org-unit{padding:12px 9px}
+ .org-unit h3{font-size:13px}
+ .org-unit p{font-size:10px;line-height:1.6}
+ .org-children{padding-left:9px;gap:8px}
+ .org-children>.org-node>.org-unit{padding:10px 8px}
+ .org-children .org-unit h3{font-size:12px}
 }
