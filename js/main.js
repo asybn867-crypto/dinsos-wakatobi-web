@@ -6,8 +6,9 @@ const initPublicStructure=async()=>{
  try{
   const data=await api("/api/public-structure"),items=data.items||[];
   host.replaceChildren();
-  const leadItem=items.find(item=>(item.name||"").trim().toLocaleLowerCase("id")==="kepala dinas");
-  const units=items.filter(item=>item!==leadItem);
+  const normalizeName=value=>(value||"").toLocaleLowerCase("id").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/[^a-z0-9]/g,"");
+  const leadItem=items.find(item=>normalizeName(item.name)==="kepaladinas");
+  const seenNames=new Set(["kepaladinas"]),units=items.filter(item=>normalizeName(item.name)!=="kepaladinas").sort((a,b)=>(a.sort_order-b.sort_order)||a.name.localeCompare(b.name,"id")).filter(item=>{const key=normalizeName(item.name);if(!key||seenNames.has(key))return false;seenNames.add(key);return true});
   if(!items.length){const p=document.createElement("p");p.className="public-content-state";p.textContent="Susunan organisasi belum tersedia.";host.append(p);return}
   const lead=document.createElement("div");lead.className="org-lead";const tag=document.createElement("span"),name=document.createElement("strong");tag.textContent="PIMPINAN";name.textContent="Kepala Dinas";lead.append(tag,name);
   if(leadItem?.description){const desc=document.createElement("p");desc.textContent=leadItem.description;lead.append(desc)}
