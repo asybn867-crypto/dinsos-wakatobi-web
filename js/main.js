@@ -39,4 +39,4 @@ const initAdmin=()=>{
  $("#admin-logout")?.addEventListener("click",async()=>{try{await api("/api/auth/logout",{method:"POST"})}catch{}location.replace("/ruang-admin.html")});
  checkSession();
 };
-document.addEventListener("DOMContentLoaded",()=>{const year=$("#year");if(year)year.textContent=new Date().getFullYear();initComplaint();initTracking();initSetup();initAdminPortal();initAdmin();});
+document.addEventListener("DOMContentLoaded",()=>{initPublicContent();const year=$("#year");if(year)year.textContent=new Date().getFullYear();initComplaint();initTracking();initSetup();initAdminPortal();initAdmin();});
