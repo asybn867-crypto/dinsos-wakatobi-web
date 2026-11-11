@@ -1,3 +1,4 @@
+[hidden]{display:none!important}
 :root{--forest:#164e43;--forest-dark:#103b34;--green:#247565;--lime:#d7e8a6;--gold:#e4b94f;--paper:#f4f6f2;--surface:#fff;--ink:#202d29;--muted:#697771;--line:#dce4dd;--sans:Inter,"Segoe UI",Arial,sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:145px}
