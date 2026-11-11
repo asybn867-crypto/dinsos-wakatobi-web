@@ -106,13 +106,13 @@ async function complaintApi(request,url,env){
   if(!allowedOrigin(request))return json({error:"Origin tidak diizinkan"},403);
   let data;try{data=await readJson(request)}catch{return json({error:"JSON tidak valid"},400)}
   const cats=["bantuan-sosial","perlindungan","rehabilitasi","data","lainnya"];
-  if(!data||typeof data!=="object"||Array.isArray(data)||!cats.includes(data.category)||typeof data.title!=="string"||data.title.trim().length<5||data.title.trim().length>120||typeof data.description!=="string"||data.description.trim().length<20||data.description.trim().length>2000)return json({error:"Periksa kategori, judul, dan uraian pengaduan"},400);
+  if(!data||typeof data!=="object"||Array.isArray(data)||!cats.includes(data.category)||typeof data.title!=="string"||data.title.trim().length<5||data.title.trim().length>120||typeof data.description!=="string"||data.description.trim().length<20||data.description.trim().length>2000||!["whatsapp","email"].includes(data.contactMethod)||typeof data.contactValue!=="string"||data.contactValue.trim().length<5||data.contactValue.trim().length>120)return json({error:"Periksa kategori, judul, uraian, dan kontak"},400);
   const now=Date.now(),ip=request.headers.get("cf-connecting-ip")||"unknown",key=await hash("complaint:"+ip);
   const limit=await env.DB.prepare("INSERT INTO complaint_rate_limits(rate_key,window_start,attempts) VALUES(?1,?2,1) ON CONFLICT(rate_key) DO UPDATE SET attempts=CASE WHEN window_start<?2-?3 THEN 1 ELSE attempts+1 END,window_start=CASE WHEN window_start<?2-?3 THEN ?2 ELSE window_start END RETURNING attempts").bind(key,now,86400000).first();
   if(!limit||limit.attempts>3)return json({error:"Batas pengiriman harian tercapai. Coba kembali besok."},429);
   const alphabet="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",bytes=crypto.getRandomValues(new Uint8Array(9)),ticket=Array.from(bytes,b=>alphabet[b%alphabet.length]).join(""),id=crypto.randomUUID(),created=new Date(now).toISOString();
-  await env.DB.prepare("INSERT INTO complaints(id,category,title,description,tracking_hash,status,public_update,created_at,updated_at) VALUES(?1,?2,?3,?4,?5,'diterima','',?6,?6)").bind(id,data.category,data.title.trim(),data.description.trim(),await hash(ticket),created).run();
-  return json({ok:true,trackingCode:ticket},201);
+  await env.DB.prepare("INSERT INTO complaints(id,category,title,description,tracking_hash,status,public_update,created_at,updated_at,contact_method,contact_value) VALUES(?1,?2,?3,?4,?5,'diterima','',?6,?6,?7,?8)").bind(id,data.category,data.title.trim(),data.description.trim(),await hash(ticket),created,data.contactMethod,data.contactValue.trim()).run();
+  return json({ok:true},201);
  }
  if(url.pathname==="/api/complaints/track"&&request.method==="GET"){
   const ticket=(url.searchParams.get("code")||"").trim().toUpperCase();if(!/^[A-HJ-NP-Z2-9]{9}$/.test(ticket))return json({error:"Kode tiket tidak valid"},400);
@@ -124,7 +124,7 @@ async function complaintApi(request,url,env){
   const user=await currentUser(request,env.DB);if(!user)return json({error:"Silakan login"},401);
   if(user.must_change_password)return json({error:"Ganti password sementara sebelum melanjutkan"},403);
   if(user.role!=="admin")return json({error:"Hanya Admin yang dapat mengelola pengaduan"},403);
-  if(request.method==="GET"&&url.pathname==="/api/admin/complaints"){const rows=await env.DB.prepare("SELECT id,category,title,description,status,public_update,created_at,updated_at FROM complaints ORDER BY created_at DESC LIMIT 200").all();return json({items:rows.results||[]})}
+  if(request.method==="GET"&&url.pathname==="/api/admin/complaints"){const rows=await env.DB.prepare("SELECT id,category,title,description,status,public_update,created_at,updated_at,contact_method,contact_value FROM complaints ORDER BY created_at DESC LIMIT 200").all();return json({items:rows.results||[]})}
   const match=url.pathname.match(/^\/api\/admin\/complaints\/([a-f0-9-]{36})$/i);
   if(request.method==="PATCH"&&match){let data;try{data=await readJson(request)}catch{return json({error:"JSON tidak valid"},400)}const statuses=["diterima","ditinjau","ditindaklanjuti","selesai"];if(!data||!statuses.includes(data.status)||typeof data.publicUpdate!=="string"||data.publicUpdate.length>500)return json({error:"Status atau pembaruan tidak valid"},400);const now=new Date().toISOString(),result=await env.DB.prepare("UPDATE complaints SET status=?1,public_update=?2,updated_at=?3 WHERE id=?4").bind(data.status,data.publicUpdate.trim(),now,match[1]).run();if(!result.meta?.changes)return json({error:"Pengaduan tidak ditemukan"},404);await audit(env.DB,user.email,"complaint_update",match[1]);return json({ok:true})}
   return json({error:"Endpoint tidak ditemukan"},404);
