@@ -283,3 +283,32 @@ button,input,select,textarea{font:inherit}
 @keyframes adminRise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:900px){.admin-sidebar{width:205px;padding-inline:14px}.admin-main{margin-left:205px;padding-inline:16px}.admin-overview-stats{grid-template-columns:repeat(3,1fr)}.admin-overview-stats blockquote{display:none}.admin-overview-stats article{padding:0 12px;gap:10px}.admin-stat-icon{width:48px;height:48px}.admin-overview-columns{grid-template-columns:1fr}}
 @media(max-width:620px){.admin-sidebar{position:relative;width:100%;height:auto;padding:12px 14px}.admin-brand{flex-direction:row;text-align:left;padding:0 0 12px}.admin-brand img{width:42px;height:46px}.admin-brand strong{font-size:16px}.admin-brand small{font-size:12px}.admin-side-nav{display:flex;overflow-x:auto;gap:5px}.admin-side-nav button{white-space:nowrap;padding:10px 12px;font-size:13px}.admin-side-nav button span{font-size:18px;width:auto}.admin-side-logout{position:absolute;right:12px;top:12px;margin:0;border:0;padding:8px;font-size:0}.admin-sidebar-landscape{display:none}.admin-main{margin:0;padding:0 12px 18px}.admin-topbar{height:48px;font-size:11px}.admin-hero{height:245px}.admin-hero-copy{left:6%;right:5%}.admin-hero-copy h1{font-size:34px}.admin-hero-copy p{font-size:14px}.admin-overview-stats{padding:14px 4px}.admin-overview-stats article{padding:0 7px;gap:7px;min-height:65px}.admin-stat-icon{width:35px;height:35px;font-size:19px}.admin-overview-stats article strong{font-size:26px}.admin-overview-stats article small{font-size:12px}.admin-overview-stats article em{display:none}.admin-overview-panel{padding:15px}.admin-overview-heading h2{font-size:20px}.admin-overview-heading button{font-size:11px}.admin-dashboard-form{grid-template-columns:1fr}.admin-dashboard-form label{grid-column:1!important}}
+
+/* Beranda: rapikan ruang kosong antarbagian */
+.page-main>section:not(.hero){min-height:0;padding-top:clamp(46px,5.2vw,72px);padding-bottom:clamp(46px,5.2vw,72px)}
+.intro-layout{margin-top:22px;gap:7%}
+.intro h2,.section-heading h2,.contact-heading h2{font-size:clamp(32px,4vw,52px)}
+.section-heading{margin-top:19px;margin-bottom:27px}
+.services-section,.news-section,.structure-section,.contact-section{scroll-margin-top:70px}
+.news-feature{margin-bottom:30px}
+.news-photo,.news-photo img{min-height:300px}
+.org-chart{padding-top:18px}
+@media(max-width:760px){
+.page-main>section:not(.hero){padding-top:44px;padding-bottom:48px}
+.intro-layout,.section-heading,.contact-heading,.news-feature{grid-template-columns:1fr;gap:18px}
+.intro-layout{margin-top:18px}
+.news-photo,.news-photo img{min-height:220px}
+.service-row{grid-template-columns:1fr;gap:7px;padding:17px 4px}
+.org-branches{grid-template-columns:1fr 1fr;gap:12px}
+}
+@media(max-width:480px){
+.hero{min-height:460px;height:calc(82svh - 145px);padding:45px 23px}
+.hero h1{font-size:clamp(42px,11vw,58px)}
+.hero-description{font-size:13px}
+.org-branches{grid-template-columns:1fr}
+.org-branches:before,.org-unit:before{display:none}
+.org-unit p{min-height:0}
+.org-bottom{flex-direction:column}
+.contact-list{grid-template-columns:1fr}
+.contact-item,.contact-item+.contact-item{padding:17px 0;border-left:0;border-bottom:1px solid var(--line)}
+}
