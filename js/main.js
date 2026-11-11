@@ -21,4 +21,4 @@ const initAdmin=()=>{
  $("#admin-logout")?.addEventListener("click",async()=>{try{await api("/api/auth/logout",{method:"POST"})}catch{}panel.hidden=true;form.hidden=false;form.reset();feedback.textContent="Anda telah keluar."});
  checkSession();
 };
-document.addEventListener("DOMContentLoaded",()=>{const year=$("#year");if(year)year.textContent=new Date().getFullYear();initComplaint();initTracking();initSetup();initAdmin()});
+document.addEventListener("DOMContentLoaded",()=>{const year=$("#year");if(year)year.textContent=new Date().getFullYear();initComplaint();initTracking();initSetup();initAdmin();initAdminModules()});
