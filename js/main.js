@@ -1,7 +1,6 @@
 const $=(selector,root=document)=>root.querySelector(selector);
 const categories={"Bantuan sosial":"bantuan-sosial","Rehabilitasi sosial":"rehabilitasi","Pengaduan layanan":"lainnya","Aspirasi":"lainnya","Lainnya":"lainnya"};
 const api=async(path,options={})=>{const response=await fetch(path,{credentials:"same-origin",...options});const data=await response.json().catch(()=>({error:"Respons server tidak valid"}));if(!response.ok)throw new Error(data.error||"Permintaan gagal");return data};
-const initPublicContent=async()=>{const host=$("#public-content-list");if(!host)return;try{const data=await api("/api/public-content"),items=(data.items||[]).slice(0,4);host.replaceChildren();if(!items.length){const p=document.createElement("p");p.className="public-content-state";p.textContent="Belum ada informasi yang diterbitkan.";host.append(p);return}for(const item of items){const article=document.createElement("article"),tag=document.createElement("span"),title=document.createElement("h3"),summary=document.createElement("p"),meta=document.createElement("small");article.className="latest-card";tag.className="latest-tag";tag.textContent=item.type||"Informasi";title.textContent=item.title||"Informasi";summary.textContent=item.summary||"";meta.textContent=item.published_at?new Date(item.published_at).toLocaleDateString("id-ID"):"";article.append(tag,title,summary,meta);if(item.source_url){const link=document.createElement("a");link.href=item.source_url;link.target="_blank";link.rel="noopener noreferrer";link.textContent="Lihat sumber";article.append(link)}host.append(article)}}catch{host.replaceChildren();const p=document.createElement("p");p.className="public-content-state";p.textContent="Informasi terbaru belum dapat dimuat.";host.append(p)}};
 const initPublicStructure=async()=>{
  const host=$("#public-structure-list");if(!host)return;
  try{
@@ -69,4 +68,4 @@ const initAdmin=()=>{
  $("#admin-logout")?.addEventListener("click",async()=>{try{await api("/api/auth/logout",{method:"POST"})}catch{}location.replace(document.body.dataset.adminLoginPath)});
  checkSession();
 };
-document.addEventListener("DOMContentLoaded",()=>{initPublicContent();initPublicStructure();const year=$("#year");if(year)year.textContent=new Date().getFullYear();initComplaint();initTracking();initSetup();initAdminPortal();initAdmin();});
+document.addEventListener("DOMContentLoaded",()=>{initPublicStructure();const year=$("#year");if(year)year.textContent=new Date().getFullYear();initComplaint();initTracking();initSetup();initAdminPortal();initAdmin();});
