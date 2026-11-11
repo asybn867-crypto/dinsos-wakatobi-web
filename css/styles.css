@@ -477,3 +477,10 @@ button,input,select,textarea{font:inherit}
 .news-image-item h3{font-size:15px}
 .news-image-item p{font-size:11px;line-height:1.6}
 }
+
+.social-links{display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.social-links>span{color:#94752b;font-size:10px;font-weight:800;letter-spacing:.12em}
+.social-links>a{display:inline-flex;align-items:center;gap:9px;color:var(--forest-dark);font-size:13px;font-weight:700;text-decoration:none}
+.social-links>a b{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#1877f2;color:#fff;font:800 17px Arial}
+.social-links>a i{font-style:normal;color:var(--muted)}
+.social-links>a:hover{color:#1877f2}
