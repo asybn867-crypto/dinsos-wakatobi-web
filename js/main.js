@@ -11,6 +11,7 @@ const initTracking=()=>{
  form.addEventListener("submit",async event=>{event.preventDefault();if(!form.reportValidity())return;feedback.textContent="Memeriksa kode…";resultBox.replaceChildren();
  try{const code=new FormData(form).get("code").toString().trim().toUpperCase(),data=await api("/api/complaints/track?code="+encodeURIComponent(code));const c=data.complaint,wrap=document.createElement("div");wrap.className="admin-login-page";for(const [label,value] of [["Judul",c.title],["Kategori",c.category],["Status",c.status],["Pembaruan",c.public_update||"Belum ada pembaruan"],["Dibuat",new Date(c.created_at).toLocaleString("id-ID")],["Terakhir diperbarui",new Date(c.updated_at).toLocaleString("id-ID")]]){const p=document.createElement("p"),b=document.createElement("strong");b.textContent=label+": ";p.append(b,document.createTextNode(value));wrap.append(p)}resultBox.append(wrap);feedback.textContent="Laporan ditemukan."}catch(error){feedback.textContent=error.message}});
 };
+const initSetup=()=>{const form=$("#admin-setup");if(!form)return;const feedback=$("#setup-feedback");form.addEventListener("submit",async event=>{event.preventDefault();if(!form.reportValidity())return;const button=form.querySelector("button[type=submit]"),data=new FormData(form),token=String(data.get("token")||"");button.disabled=true;feedback.textContent="Membuat akun admin…";try{await api("/api/auth/setup",{method:"POST",headers:{"content-type":"application/json","x-bootstrap-token":token},body:JSON.stringify({email:data.get("email"),password:data.get("password")})});form.reset();feedback.textContent="Akun admin berhasil dibuat dan sesi login aktif. Buka Ruang Admin."}catch(error){feedback.textContent=error.message}finally{button.disabled=false}})};
 const initAdmin=()=>{
  const form=$("#admin-login");if(!form)return;const feedback=$("#admin-feedback"),panel=$("#admin-panel"),list=$("#admin-complaints"),panelFeedback=$("#admin-panel-feedback");
  const showPanel=()=>{form.hidden=true;panel.hidden=false;loadComplaints()};
@@ -20,4 +21,4 @@ const initAdmin=()=>{
  $("#admin-logout")?.addEventListener("click",async()=>{try{await api("/api/auth/logout",{method:"POST"})}catch{}panel.hidden=true;form.hidden=false;form.reset();feedback.textContent="Anda telah keluar."});
  checkSession();
 };
-document.addEventListener("DOMContentLoaded",()=>{const year=$("#year");if(year)year.textContent=new Date().getFullYear();initComplaint();initTracking();initAdmin()});
+document.addEventListener("DOMContentLoaded",()=>{const year=$("#year");if(year)year.textContent=new Date().getFullYear();initComplaint();initTracking();initSetup();initAdmin()});
