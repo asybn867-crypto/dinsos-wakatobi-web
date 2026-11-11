@@ -6,9 +6,13 @@ const initPublicStructure=async()=>{
  try{
   const data=await api("/api/public-structure"),items=data.items||[];
   host.replaceChildren();
+  const leadItem=items.find(item=>(item.name||"").trim().toLocaleLowerCase("id")==="kepala dinas");
+  const units=items.filter(item=>item!==leadItem);
   if(!items.length){const p=document.createElement("p");p.className="public-content-state";p.textContent="Susunan organisasi belum tersedia.";host.append(p);return}
-  const lead=document.createElement("div");lead.className="org-lead";const tag=document.createElement("span"),name=document.createElement("strong");tag.textContent="PIMPINAN";name.textContent="Kepala Dinas";lead.append(tag,name);host.append(lead);
-  const byParent=new Map();for(const item of items){const key=item.parent_id||"";if(!byParent.has(key))byParent.set(key,[]);byParent.get(key).push(item)}
+  const lead=document.createElement("div");lead.className="org-lead";const tag=document.createElement("span"),name=document.createElement("strong");tag.textContent="PIMPINAN";name.textContent="Kepala Dinas";lead.append(tag,name);
+  if(leadItem?.description){const desc=document.createElement("p");desc.textContent=leadItem.description;lead.append(desc)}
+  host.append(lead);
+  const byParent=new Map();for(const item of units){const key=item.parent_id||"";if(!byParent.has(key))byParent.set(key,[]);byParent.get(key).push(item)}
   for(const list of byParent.values())list.sort((a,b)=>(a.sort_order-b.sort_order)||a.name.localeCompare(b.name,"id"));
   const branches=document.createElement("div");branches.className="org-branches";
   const addUnit=(item,parent)=>{
