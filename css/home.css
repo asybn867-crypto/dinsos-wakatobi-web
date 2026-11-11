@@ -278,6 +278,9 @@ button,a{-webkit-tap-highlight-color:transparent}
  .document-row strong{font-size:11px}
  .org-support article{align-items:flex-start}
 }
+
+.verification-note{padding:18px 0;color:#718078;font-size:10px;line-height:1.8}
+@media(max-width:760px){.org-lead{width:calc(100% - 7px);margin-left:7px}.org-stem{margin-left:7px}}
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
