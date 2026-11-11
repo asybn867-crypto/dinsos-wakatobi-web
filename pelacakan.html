@@ -1,3 +1,59 @@
 <!doctype html>
-<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#164e43"><meta name="robots" content="noindex,nofollow"><title>Pelacakan Pengaduan | Dinsos Wakatobi</title><link rel="stylesheet" href="css/styles.css"><script src="js/main.js" defer></script></head>
-<body><div class="demo-notice">PROTOTIPE WEBSITE · BUKAN KANAL PELAYANAN RESMI</div><header class="site-header"><a class="identity" href="index.html"><img class="identity-logo" src="logo-kemensos.jpg" alt=""><span class="identity-copy"><strong>Dinas Sosial</strong><small>Kabupaten Wakatobi</small></span></a><a class="header-action" href="pengaduan.html">← Kembali</a></header><main class="section-wrap admin-page"><div class="section-label">PELACAKAN</div><h1>Periksa status laporan</h1><p>Masukkan kode tiket yang diberikan setelah laporan berhasil dikirim.</p><form id="track-form" class="admin-login-page"><label>Kode tiket<input name="code" minlength="9" maxlength="9" autocomplete="off" required placeholder="9 karakter"></label><button type="submit">Lacak laporan</button><p id="track-feedback" role="status"></p><div id="track-result" aria-live="polite"></div></form></main><footer class="site-footer"><div class="footer-bottom"><p>PROTOTIPE WEBSITE · Bukan situs resmi atau kanal pelayanan aktif.</p></div></footer></body></html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#102f2e">
+<meta name="description" content="Periksa status laporan menggunakan kode tiket.">
+<title>Pelacakan Pengaduan | Dinas Sosial Wakatobi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/public.css">
+<script src="js/main.js" defer></script>
+</head>
+<body class="public-page">
+<a class="skip-link" href="#konten">Lewati ke pelacakan</a>
+<div class="gov-strip"><div class="site-container"><span>Pemerintah Kabupaten Wakatobi</span><span>Sulawesi Tenggara · Indonesia</span></div></div>
+<header class="site-header">
+  <div class="header-main">
+    <a class="identity" href="index.html" aria-label="Dinas Sosial Kabupaten Wakatobi, beranda">
+      <span class="identity-emblem" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="15.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 21.5c3.1-2.2 5.8-2.2 9 0s5.9 2.2 11 0M10.5 25.5c2.7-1.6 5-1.6 7.5 0s4.9 1.6 7.5 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M18 8.2v6.2m-3.1-3.1H21" stroke="#bb654c" stroke-width="1.35" stroke-linecap="round"/></svg></span>
+      <span class="identity-copy"><strong>DINAS SOSIAL</strong><small>Kabupaten Wakatobi</small></span>
+    </a>
+    <a class="service-back" href="pengaduan.html"><span aria-hidden="true">←</span> Kembali ke pengaduan</a>
+  </div>
+</header>
+<main class="service-main" id="konten">
+  <div class="site-container">
+    <div class="service-breadcrumb"><a href="index.html">Beranda</a><span>/</span><a href="pengaduan.html">Pengaduan</a><span>/</span><span>Pelacakan</span></div>
+    <div class="tracking-page-layout">
+      <section class="tracking-page-intro">
+        <div class="section-label">PELACAKAN / TIKET LAPORAN</div>
+        <h1>Periksa perkembangan <em>laporan.</em></h1>
+        <p>Gunakan kode tiket yang diterima setelah formulir berhasil dikirim. Kode tiket diperlukan untuk membuka informasi status laporan.</p>
+      </section>
+      <section class="tracking-page-form" aria-labelledby="track-title">
+        <div class="section-label">CEK STATUS</div>
+        <h2 id="track-title">Masukkan kode tiket</h2>
+        <p>Masukkan sembilan karakter kode tiket tanpa spasi.</p>
+        <form id="track-form" class="tracking-form">
+          <label for="track-code">Kode tiket</label>
+          <div><input id="track-code" name="code" minlength="9" maxlength="9" pattern="[A-HJ-NP-Z2-9]{9}" autocomplete="off" placeholder="Contoh: 7KMP4X9AB" required><button type="submit">Lacak laporan</button></div>
+        </form>
+        <p id="track-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+        <div id="track-result" aria-live="polite"></div>
+      </section>
+    </div>
+  </div>
+</main>
+<footer class="site-footer service-footer">
+  <div class="footer-main">
+    <a class="identity footer-identity" href="index.html"><span class="identity-emblem" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="15.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 21.5c3.1-2.2 5.8-2.2 9 0s5.9 2.2 11 0M10.5 25.5c2.7-1.6 5-1.6 7.5 0s4.9 1.6 7.5 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M18 8.2v6.2m-3.1-3.1H21" stroke="#bb654c" stroke-width="1.35" stroke-linecap="round"/></svg></span><span class="identity-copy"><strong>DINAS SOSIAL</strong><small>Kabupaten Wakatobi</small></span></a>
+    <p>Halaman pelacakan prototype · Gunakan kode tiket yang benar dan jangan bagikan kepada pihak lain.</p>
+    <span>© <span id="year">2026</span> DINAS SOSIAL WAKATOBI</span>
+  </div>
+</footer>
+</body>
+</html>
