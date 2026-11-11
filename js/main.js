@@ -6,32 +6,31 @@ const initPublicStructure=async()=>{
  try{
   const data=await api("/api/public-structure"),items=data.items||[];
   host.replaceChildren();
-  const normalizeName=value=>(value||"").toLocaleLowerCase("id").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/[^a-z0-9]/g,"");
-  const leadItem=items.find(item=>normalizeName(item.name)==="kepaladinas");
-  const seenNames=new Set(["kepaladinas"]),units=items.filter(item=>normalizeName(item.name)!=="kepaladinas").sort((a,b)=>(a.sort_order-b.sort_order)||a.name.localeCompare(b.name,"id")).filter(item=>{const key=normalizeName(item.name);if(!key||seenNames.has(key))return false;seenNames.add(key);return true});
-  if(!items.length){const p=document.createElement("p");p.className="public-content-state";p.textContent="Susunan organisasi belum tersedia.";host.append(p);return}
-  const lead=document.createElement("div");lead.className="org-lead";const tag=document.createElement("span"),name=document.createElement("strong");tag.textContent="PIMPINAN";name.textContent="Kepala Dinas";lead.append(tag,name);
-  if(leadItem?.description){const desc=document.createElement("p");desc.textContent=leadItem.description;lead.append(desc)}
-  host.append(lead);
-  const byParent=new Map();for(const item of units){const key=item.parent_id||"";if(!byParent.has(key))byParent.set(key,[]);byParent.get(key).push(item)}
-  for(const list of byParent.values())list.sort((a,b)=>(a.sort_order-b.sort_order)||a.name.localeCompare(b.name,"id"));
+  const normalize=value=>(value||"").toLocaleLowerCase("id").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/[^a-z0-9]/g,"");
+  const byName=new Map();
+  for(const item of items){const key=normalize(item.name);if(key&&!byName.has(key))byName.set(key,item)}
+  const officialUnits=[
+   ["Sekretariat","Program, anggaran, administrasi keuangan, kepegawaian, perlengkapan, dan urusan umum."],
+   ["Bidang Perlindungan dan Jaminan Sosial","Perlindungan sosial korban bencana serta penyelenggaraan jaminan sosial keluarga."],
+   ["Bidang Rehabilitasi Sosial","Pelayanan rehabilitasi sosial bagi anak, penyandang disabilitas, lanjut usia, dan kelompok yang membutuhkan pelayanan sosial."],
+   ["Bidang Pemberdayaan Sosial dan Penanganan Fakir Miskin","Pemberdayaan sosial masyarakat serta penanganan fakir miskin."],
+   ["Unit Pelaksana Teknis Daerah (UPTD)","Unsur pelaksana teknis Dinas Sosial sesuai pembentukan berdasarkan ketentuan."],
+   ["Kelompok Jabatan Fungsional","Pelaksana tugas berdasarkan keahlian dan keterampilan sesuai ketentuan."]
+  ];
+  const lead=document.createElement("div");lead.className="org-lead";
+  const tag=document.createElement("span"),name=document.createElement("strong");
+  tag.textContent="PIMPINAN";name.textContent="Kepala Dinas";lead.append(tag,name);host.append(lead);
   const branches=document.createElement("div");branches.className="org-branches";
-  const addUnit=(item,parent)=>{
+  for(const [title,fallback] of officialUnits){
+   const item=byName.get(normalize(title))||byName.get(normalize(title.replace(" (UPTD)","")));
    const node=document.createElement("div");node.className="org-node";
    const card=document.createElement("article");card.className="org-unit";
-   const label=document.createElement("span");label.textContent=item.parent_id?"UNIT":"UNIT KERJA";
-   const title=document.createElement("h3");title.textContent=item.name;
-   const desc=document.createElement("p");desc.textContent=item.description||"";
-   card.append(label,title);if(item.description)card.append(desc);
-   if(item.office_holder){const holder=document.createElement("div");holder.className="org-sub";holder.textContent="Penanggung jawab: "+item.office_holder;card.append(holder)}
-   node.append(card);
-   const children=byParent.get(item.id)||[];
-   if(children.length){const group=document.createElement("div");group.className="org-children";for(const child of children)addUnit(child,group);node.append(group)}
-   parent.append(node);
-  };
-  for(const item of byParent.get("")||[])addUnit(item,branches);
-  if(branches.childElementCount)host.append(branches);
-  const note=document.createElement("p");note.className="org-note";note.textContent="Susunan organisasi ditampilkan dari unit aktif yang dikelola melalui Ruang Admin.";host.append(note);
+   const label=document.createElement("span");label.textContent="UNIT";
+   const heading=document.createElement("h3");heading.textContent=title;
+   const desc=document.createElement("p");desc.textContent=item?.description||fallback;
+   card.append(label,heading,desc);node.append(card);branches.append(node);
+  }
+  host.append(branches);
  }catch(error){host.replaceChildren();const p=document.createElement("p");p.className="public-content-state";p.textContent="Susunan organisasi belum dapat dimuat.";host.append(p)}
 };
 const initComplaint=()=>{
