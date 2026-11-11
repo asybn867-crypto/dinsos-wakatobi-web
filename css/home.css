@@ -279,7 +279,6 @@ button,a{-webkit-tap-highlight-color:transparent}
  .org-support article{align-items:flex-start}
 }
 
-.verification-note{padding:18px 0;color:#718078;font-size:10px;line-height:1.8}
 @media(max-width:760px){.org-lead{width:calc(100% - 7px);margin-left:7px}.org-stem{margin-left:7px}}
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
@@ -358,4 +357,39 @@ button,a{-webkit-tap-highlight-color:transparent}
  .site-nav a{font-size:9px}
  .hero{min-height:570px;padding-top:65px}
  .hero-foot{gap:9px;font-size:7px}
+}
+
+
+/* Navigation shortcuts */
+html{scroll-padding-top:132px}
+.site-header{position:sticky;top:0;z-index:80}
+.header-main{display:flex;align-items:center;gap:clamp(14px,2vw,28px)}
+.site-nav{display:flex;align-items:center;justify-content:flex-end;flex:1;min-width:0;width:auto;min-height:70px;margin:0;gap:clamp(9px,1.15vw,17px);border:0}
+.site-nav a{min-height:70px;white-space:nowrap;font-size:10px}
+.site-nav .nav-strong{margin-left:0;padding:0 12px;background:#dfe5da;color:#365b51}
+.site-nav .nav-track{padding:0 10px;border:1px solid #aebeb1;color:#365b51}
+.site-nav .nav-track:after{display:none}
+.site-nav a:hover,.site-nav a.is-active{color:#9a6048}
+@media(max-width:1050px){
+ .header-main{gap:13px}
+ .site-nav{gap:10px}
+ .site-nav a{font-size:9px}
+}
+@media(max-width:900px){
+ .header-main{width:var(--page);padding:10px 0 0;display:flex;flex-wrap:wrap;gap:6px 14px}
+ .site-nav{order:2;display:flex;flex:0 0 100%;width:100%;min-height:46px;margin:0;justify-content:flex-start;gap:19px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;border-top:1px solid #d0d7ce}
+ .site-nav::-webkit-scrollbar{display:none}
+ .site-nav a{min-height:44px;font-size:10px}
+ .site-nav .nav-strong{padding:0 11px}
+ .site-nav .nav-track{padding:0 10px}
+}
+@media(max-width:760px){
+ html{scroll-padding-top:116px}
+ .header-main{min-height:0;padding-top:9px}
+ .site-nav{display:flex!important;grid-template-columns:none;padding:0;gap:18px;background:transparent}
+ .site-nav a{display:inline-flex;flex:none;min-height:43px;font-size:9px}
+}
+@media(max-width:430px){
+ .site-nav{gap:16px}
+ .site-nav a{font-size:9px}
 }
