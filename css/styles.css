@@ -374,3 +374,5 @@ button,input,select,textarea{font:inherit}
 .ticket-issued p{margin:0;color:#586b5d;font-size:11px;line-height:1.7}
 .tracking-result{margin-top:12px;padding:15px;background:white;border:1px solid var(--line)}
 @media(max-width:640px){.tracking-panel{padding:20px}.tracking-form>div{flex-direction:column}.tracking-form button{width:100%}}
+
+.org-children{display:grid;gap:8px;margin-top:12px;padding-left:12px;border-left:1px solid #cbd9cc}.org-children .org-unit{padding:12px;background:#fff;border-top-width:2px}.org-children .org-unit h3{font-size:14px;margin:6px 0}.org-children .org-unit p{min-height:0}.org-children .org-sub{font-size:10px}
