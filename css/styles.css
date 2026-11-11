@@ -456,3 +456,24 @@ button,input,select,textarea{font:inherit}
 .news-item-photo:hover img{transform:scale(1.035)}
 .news-image-item>div{min-width:0}
 @media(max-width:520px){.news-image-list .news-image-item{grid-template-columns:1fr;gap:12px;padding:18px 0}.news-item-photo{height:210px}}
+
+
+/* Ukuran foto berita dibuat proporsional */
+.news-feature{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px}
+.news-photo,.news-photo img{height:250px;min-height:0}
+.news-photo img{width:100%;object-fit:cover}
+.news-image-list .news-image-item{grid-template-columns:190px minmax(0,1fr);gap:20px}
+.news-item-photo{height:128px}
+@media(max-width:760px){
+.news-feature{grid-template-columns:1fr;gap:14px}
+.news-photo,.news-photo img{height:190px;min-height:0}
+.news-image-list .news-image-item{grid-template-columns:132px minmax(0,1fr);gap:14px}
+.news-item-photo{height:96px}
+}
+@media(max-width:480px){
+.news-photo,.news-photo img{height:165px;min-height:0}
+.news-image-list .news-image-item{grid-template-columns:112px minmax(0,1fr);gap:12px}
+.news-item-photo{height:84px}
+.news-image-item h3{font-size:15px}
+.news-image-item p{font-size:11px;line-height:1.6}
+}
