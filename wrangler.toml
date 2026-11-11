@@ -1,0 +1,14 @@
+name = "dinsos-wakatobi-web"
+main = "worker/src/index.js"
+compatibility_date = "2026-11-10"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dinsos-wakatobi-db"
+database_id = "c8898e5c-4765-4b07-a037-8badbab25789"
+migrations_dir = "worker/migrations"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
