@@ -1,27 +1,23 @@
 const $=(selector,root=document)=>root.querySelector(selector);
 const categories={"Bantuan sosial":"bantuan-sosial","Rehabilitasi sosial":"rehabilitasi","Pengaduan layanan":"lainnya","Aspirasi":"lainnya","Lainnya":"lainnya"};
-const initForms=()=>{
- const complaint=$("#complaint-form"),feedback=$("#complaint-feedback");
- complaint?.addEventListener("submit",async event=>{
-  event.preventDefault();
-  if(!complaint.reportValidity())return;
-  const button=complaint.querySelector('button[type="submit"]');
-  const data=new FormData(complaint);
-  const description=String(data.get("uraian")||"").trim()+"\nLokasi: "+String(data.get("lokasi")||"").trim();
-  button.disabled=true;feedback.textContent="Mengirim pengaduan…";
-  try{
-   const response=await fetch("/api/complaints",{method:"POST",headers:{"content-type":"application/json"},credentials:"same-origin",body:JSON.stringify({category:categories[String(data.get("kategori"))]||"lainnya",title:String(data.get("judul")||"").trim(),description})});
-   const result=await response.json();
-   if(!response.ok)throw new Error(result.error||"Pengaduan gagal dikirim");
-   feedback.textContent="Pengaduan berhasil dikirim. Simpan kode tiket ini: "+result.trackingCode;
-   complaint.reset();
-  }catch(error){feedback.textContent=error.message}
-  finally{button.disabled=false}
- });
- const admin=$("#admin-login"),adminFeedback=$("#admin-feedback");
- admin?.addEventListener("submit",async event=>{
-  event.preventDefault();if(!admin.reportValidity())return;
-  adminFeedback.textContent="Backend login tersedia melalui API. Panel admin perlu dihubungkan ke sesi autentikasi.";
- });
+const api=async(path,options={})=>{const response=await fetch(path,{credentials:"same-origin",...options});const data=await response.json().catch(()=>({error:"Respons server tidak valid"}));if(!response.ok)throw new Error(data.error||"Permintaan gagal");return data};
+const initComplaint=()=>{
+ const form=$("#complaint-form"),feedback=$("#complaint-feedback");if(!form)return;
+ form.addEventListener("submit",async event=>{event.preventDefault();if(!form.reportValidity())return;const button=form.querySelector('button[type="submit"]'),data=new FormData(form),description=String(data.get("uraian")||"").trim()+"\nLokasi: "+String(data.get("lokasi")||"").trim();button.disabled=true;feedback.textContent="Mengirim pengaduan…";
+ try{const result=await api("/api/complaints",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({category:categories[String(data.get("kategori"))]||"lainnya",title:String(data.get("judul")||"").trim(),description})});feedback.textContent="Laporan tersimpan. Kode tiket: "+result.trackingCode+" · Simpan kode ini untuk pelacakan.";form.reset()}catch(error){feedback.textContent=error.message}finally{button.disabled=false}});
 };
-document.addEventListener("DOMContentLoaded",()=>{const year=$("#year");if(year)year.textContent=new Date().getFullYear();initForms()});
+const initTracking=()=>{
+ const form=$("#track-form");if(!form)return;const feedback=$("#track-feedback"),resultBox=$("#track-result");
+ form.addEventListener("submit",async event=>{event.preventDefault();if(!form.reportValidity())return;feedback.textContent="Memeriksa kode…";resultBox.replaceChildren();
+ try{const code=new FormData(form).get("code").toString().trim().toUpperCase(),data=await api("/api/complaints/track?code="+encodeURIComponent(code));const c=data.complaint,wrap=document.createElement("div");wrap.className="admin-login-page";for(const [label,value] of [["Judul",c.title],["Kategori",c.category],["Status",c.status],["Pembaruan",c.public_update||"Belum ada pembaruan"],["Dibuat",new Date(c.created_at).toLocaleString("id-ID")],["Terakhir diperbarui",new Date(c.updated_at).toLocaleString("id-ID")]]){const p=document.createElement("p"),b=document.createElement("strong");b.textContent=label+": ";p.append(b,document.createTextNode(value));wrap.append(p)}resultBox.append(wrap);feedback.textContent="Laporan ditemukan."}catch(error){feedback.textContent=error.message}});
+};
+const initAdmin=()=>{
+ const form=$("#admin-login");if(!form)return;const feedback=$("#admin-feedback"),panel=$("#admin-panel"),list=$("#admin-complaints"),panelFeedback=$("#admin-panel-feedback");
+ const showPanel=()=>{form.hidden=true;panel.hidden=false;loadComplaints()};
+ const loadComplaints=async()=>{list.replaceChildren();panelFeedback.textContent="Memuat pengaduan…";try{const data=await api("/api/admin/complaints");if(!data.items.length){panelFeedback.textContent="Belum ada pengaduan.";return}panelFeedback.textContent=data.items.length+" pengaduan terbaru";for(const item of data.items){const card=document.createElement("article");card.className="admin-login-page";const title=document.createElement("h3");title.textContent=item.title;const detail=document.createElement("p");detail.textContent=item.category+" · "+new Date(item.created_at).toLocaleString("id-ID");const desc=document.createElement("p");desc.textContent=item.description;const select=document.createElement("select");for(const status of ["diterima","ditinjau","ditindaklanjuti","selesai"]){const option=document.createElement("option");option.value=status;option.textContent=status;option.selected=status===item.status;select.append(option)}const update=document.createElement("textarea");update.maxLength=500;update.placeholder="Pembaruan untuk pelapor";update.value=item.public_update||"";const save=document.createElement("button");save.type="button";save.textContent="Simpan status";save.addEventListener("click",async()=>{save.disabled=true;try{await api("/api/admin/complaints/"+item.id,{method:"PATCH",headers:{"content-type":"application/json"},body:JSON.stringify({status:select.value,publicUpdate:update.value})});panelFeedback.textContent="Status laporan diperbarui."}catch(error){panelFeedback.textContent=error.message}finally{save.disabled=false}});card.append(title,detail,desc,select,update,save);list.append(card)}}catch(error){panelFeedback.textContent=error.message;if(error.message==="Silakan login") {panel.hidden=true;form.hidden=false}}};
+ const checkSession=async()=>{try{await api("/api/auth/me");showPanel()}catch{}};
+ form.addEventListener("submit",async event=>{event.preventDefault();if(!form.reportValidity())return;const button=form.querySelector('button[type="submit"]'),data=new FormData(form);button.disabled=true;feedback.textContent="Memeriksa akun…";try{let result=await api("/api/auth/login",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:data.get("email"),password:data.get("password")})});if(result.mfaRequired){const code=window.prompt("Masukkan kode verifikasi MFA 6 digit");if(!code)throw new Error("Verifikasi MFA dibatalkan");result=await api("/api/auth/verify-mfa",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({code})})}if(result.user?.mustChangePassword)throw new Error("Akun wajib mengganti password melalui fitur pengaturan akun sebelum mengakses panel.");if(result.user?.role!=="admin")throw new Error("Akses panel pengaduan hanya untuk Admin.");feedback.textContent="Login berhasil.";showPanel()}catch(error){feedback.textContent=error.message}finally{button.disabled=false}});
+ $("#admin-logout")?.addEventListener("click",async()=>{try{await api("/api/auth/logout",{method:"POST"})}catch{}panel.hidden=true;form.hidden=false;form.reset();feedback.textContent="Anda telah keluar."});
+ checkSession();
+};
+document.addEventListener("DOMContentLoaded",()=>{const year=$("#year");if(year)year.textContent=new Date().getFullYear();initComplaint();initTracking();initAdmin()});
