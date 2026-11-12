@@ -231,8 +231,8 @@ button,input,select,textarea{font:inherit}
 .admin-sidebar-landscape{margin:auto -20px -24px;height:170px;flex:none;background:linear-gradient(0deg,#e2e8dc99,#e2e8dc00),url("wakatobi-hero.jpg") center 70%/cover;opacity:.22;mask-image:linear-gradient(0deg,#000 10%,transparent 100%)}
 .admin-main{margin-left:250px;min-height:100vh;padding:0 26px 24px;max-width:none}
 .admin-topbar{height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;color:#35465d;font:700 14px Arial,sans-serif;letter-spacing:.03em}
-.admin-account{display:flex;align-items:center;gap:10px;padding:9px 15px;border:1px solid #d9d1c5;border-radius:24px;background:#fbfaf5;box-shadow:0 2px 8px #263e3210}
-.admin-account i{width:9px;height:9px;border-radius:50%;background:#4b9d5b}
+.admin-account{display:flex;align-items:center;gap:10px;padding:9px 15px;border:1px solid #d9d1c5;border-radius:24px;background:#fbfaf5;box-shadow:0 2px 8px #17253610}
+.admin-account i{width:9px;height:9px;border-radius:50%;background:#b85c45}
 .admin-overview{gap:0!important}
 .admin-hero{height:280px;position:relative;overflow:hidden;background:#e5e1d5}
 .admin-hero>img{width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(.78)}
@@ -269,11 +269,11 @@ button,input,select,textarea{font:inherit}
 .admin-activity{margin-top:18px}
 .admin-activity-line{display:flex;align-items:center;gap:16px;padding:12px 4px;font:13px Arial,sans-serif;color:#505967}
 .admin-activity-line i{width:9px;height:9px;border-radius:50%;background:#b85c45;flex:none}
-.admin-activity-line time{white-space:nowrap;color:#778078}
+.admin-activity-line time{white-space:nowrap;color:#827b72}
 .admin-activity-line p{margin:0}
 .admin-management-section{max-width:1050px;margin:24px auto!important;gap:20px!important}
 .admin-management-section .admin-section-heading{padding:20px 0}
-.admin-dashboard-card{background:#fbfaf5;border-color:#e8e1d4;box-shadow:0 5px 18px #3d45390b}
+.admin-dashboard-card{background:#fbfaf5;border-color:#e8e1d4;box-shadow:0 5px 18px #1725360b}
 .admin-dashboard-card h3,.admin-section-heading h2{color:#172536}
 .admin-dashboard-form input,.admin-dashboard-form select,.admin-dashboard-form textarea{border-radius:3px;background:#fffdf8;border-color:#d8d3c7}
 .admin-primary-button{background:#172536}
