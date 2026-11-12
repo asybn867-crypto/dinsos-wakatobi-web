@@ -393,3 +393,8 @@ html{scroll-padding-top:132px}
  .site-nav{gap:16px}
  .site-nav a{font-size:9px}
 }
+
+/* Admin access in footer */
+.footer-admin-link{color:#c9b58a;font:500 9px var(--mono);letter-spacing:.06em;text-decoration:none;white-space:nowrap;border-bottom:1px solid #71877a;padding:7px 0;transition:color .2s,border-color .2s}
+.footer-admin-link:hover{color:#fff;border-color:#d5bd85}
+@media(max-width:760px){.footer-main{padding:22px 0;flex-wrap:wrap;justify-content:flex-start;gap:14px 22px}.footer-main>span{margin-left:auto}}
