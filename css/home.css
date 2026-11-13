@@ -442,3 +442,9 @@ body{background:#f4f0e8;color:#242b36}
  .hero:after{background:linear-gradient(90deg,rgba(23,37,54,.9),rgba(23,37,54,.57))}
  .identity-emblem{border-radius:11px}
 }
+
+/* Admin entry in primary navigation */
+.site-nav .nav-admin{min-height:36px;padding:0 13px;display:inline-flex;align-items:center;justify-content:center;background:#b85c45;color:#fffdf8;border:1px solid #b85c45;font-size:9px;font-weight:700;letter-spacing:.025em;transition:background .2s,border-color .2s}
+.site-nav .nav-admin:hover,.site-nav .nav-admin.is-active{background:#954633;border-color:#954633;color:#fff}
+@media(max-width:900px){.site-nav .nav-admin{min-height:34px;padding:0 12px}}
+@media(max-width:760px){.site-nav .nav-admin{min-height:32px;padding:0 11px}}
